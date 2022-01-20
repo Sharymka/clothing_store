@@ -294,10 +294,12 @@ a {
 }
 .button-browse:hover {
   background-color: #ffffff;
-  color: #f16d7f;
+
   outline: 1px solid #f16d7f;
 }
-
+.button-browse:hover a {
+  color: #f16d7f;
+}
 .benefits {
   background-color: #222224;
   padding: 103px 0;
