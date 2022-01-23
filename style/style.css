@@ -12,6 +12,10 @@ body {
   font-family: Lato;
   box-sizing: border-box;
 }
+
+a {
+  text-decoration: none;
+}
 .visually-hidden {
   position: absolute;
   width: 0px;
@@ -94,6 +98,21 @@ body {
   font-size: 14px;
   line-height: 17px;
 }
+.font-14-700 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}
+.font-14-400 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+.font-16-300 {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 300;
+}
 .font-16-400 {
   font-size: 16px;
   line-height: 19px;
@@ -102,6 +121,7 @@ body {
 .font-16-400 {
   font-size: 16px;
   line-height: 19px;
+  font-weight: 400;
   text-align: left;
 }
 .font-18-400 {
@@ -116,6 +136,12 @@ body {
   font-weight: 700;
   font-size: 24px;
   line-height: 30px;
+  text-align: center;
+}
+.font-24-400 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
   text-align: center;
 }
 .font-32px-900 {
@@ -133,6 +159,9 @@ body {
   font-size: 48px;
   line-height: 58px;
 }
+.italic {
+  font-style: italic;
+}
 .pink {
   color: #f16d7f;
 }
@@ -146,6 +175,12 @@ body {
 
 .grey {
   color: #9f9f9f;
+}
+.grey-1 {
+  color: #6f6e6e;
+}
+.grey-2 {
+  color: #c4c4c4;
 }
 .black {
   color: #222222;
@@ -165,11 +200,41 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 30px;
+}
+.block-pos {
+  background-color: #222224;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  height: 260px;
+}
+.block-1 {
+  background-image: url(../images/for_women.jpg);
+}
+.block-2 {
+  background-image: url(../images/for_men.jpg);
+}
+.block-3 {
+  background-image: url(../images/for_kids.jpg);
 }
 .block-4 {
-  margin-top: 30px;
+  background-image: url(../images/accesories.jpg);
+  background-repeat: no-repeat;
+  flex-grow: 1;
+  height: 180px;
 }
-.position-text {
+/* расположение текста на категориях с помощью flex
+*/
+.offer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* расположение текста на категориях с помощью position: relative-absolute
+ .position-text {
   position: relative;
 }
 .offer-text {
@@ -178,12 +243,13 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
+} */
 .catalog {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 109px;
+  gap: 30px;
 }
 .catalog-text {
   flex-basis: 100%;
@@ -198,7 +264,6 @@ body {
 .item {
   width: 360px;
   background-color: #f3eeef;
-  margin-top: 30px;
 }
 .item-img {
   background-color: #f3eeef;
@@ -219,13 +284,25 @@ body {
 }
 
 .button-browse {
-  padding: 14px 38px;
   margin-top: 48px;
   color: #ffffff;
   background-color: #f16d7f;
   border: none;
   margin-left: auto;
   margin-right: auto;
+}
+.button-browse a {
+  display: block;
+  padding: 14px 38px;
+}
+
+.button-browse:hover {
+  background-color: #ffffff;
+
+  outline: 1px solid #f16d7f;
+}
+.button-browse:hover a {
+  color: #f16d7f;
 }
 .benefits {
   background-color: #222224;
@@ -239,23 +316,32 @@ body {
 
 .benefits-section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 40px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  align-items: flex-end;
+  width: 360px;
+  height: 134px;
+  padding: 0 30px;
+}
+.img-1 {
+  background-image: url(../images/delivery.svg);
+}
+.img-2 {
+  background-image: url(../images/sale.svg);
+}
+.img-3 {
+  background-image: url(../images/quality.svg);
 }
 
-.italic {
-  font-style: italic;
-}
-.benefits-img {
-  margin-bottom: 28px;
-}
-.benefits-headline {
-  margin-bottom: 16px;
+.benefits-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
 }
 .benefits-desc {
   opacity: 0.7;
-  text-align: center;
 }
 .feedback {
   background-image: url(../images/feedback.jpg);
@@ -329,11 +415,126 @@ input::placeholder {
 .footer-col-2 {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
 }
 .icon-block {
   width: 32px;
   height: 32px;
   background-color: #ffffff;
-  margin-right: 8px;
-  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #222222;
+}
+.icon-block:hover {
+  background-color: #f16d7f;
+}
+
+.icon-block:hover .icon {
+  fill: #f8f8f8;
+  color: #e8e8e8;
+}
+
+/* стрица каталога */
+
+.breadcrumbs {
+  background-color: #f8f3f4;
+}
+.breadcrumbs-wrap {
+  height: 148px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  list-style: none;
+}
+.breadcrumbs-list a {
+  color: #636363;
+  margin-left: 6px;
+}
+.breadcrumbs-link:last-child > a {
+  color: #f16d7f;
+}
+.breadcrumbs-link:not(:first-child):before {
+  content: "/ ";
+}
+
+.catalog-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  flex-basis: 100%;
+  margin-right: 34.3%;
+  padding: 40px 0 10px 0;
+}
+.filter {
+  border: none;
+  background-color: white;
+  padding: 12px 12px 12px 18px;
+}
+.filter-col-1 {
+  flex-grow: 1;
+}
+.filter-col-2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  list-style: none;
+  margin-right: 4.5%;
+}
+.arrow-down {
+  margin-left: 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.filter-list {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 0;
+}
+.pagination-nav {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  padding: 16px;
+}
+.pagination-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+}
+.pagination-link:nth-child(21) {
+  margin-left: -12px;
+}
+.pagination-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.pagination-list a {
+  color: #c4c4c4;
+  display: block;
+  flex-basis: 15%;
+}
+.pagination-list a:hover {
+  color: #f16d7f;
+}
+.pagination-link:not(:nth-child(n + 21)):nth-child(n + 8) {
+  position: absolute;
+  visibility: hidden;
+}
+
+.pagination-link:nth-child(7)::after {
+  content: ".....";
+  color: #c4c4c4;
 }
