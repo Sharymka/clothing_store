@@ -71,7 +71,11 @@ a {
   min-height: 764px;
   background-color: transparent;
 }
-
+.video-promo {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 700px;
+}
 .promo-wrap {
   /* background-image: url(../images/promo.svg); */
   background-repeat: no-repeat;
@@ -194,7 +198,7 @@ a {
 
 .categories {
   margin-bottom: 90px;
-  /* margin-top: 65px; */
+  margin-top: 65px;
 }
 .categories-wrap {
   display: flex;
