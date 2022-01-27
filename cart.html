@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/245aac1d65.js" crossorigin="anonymous"></script>
-    <title>Main page</title>
+    <title>cart</title>
 </head>
 
 <body>
@@ -37,167 +37,69 @@
         </div>
     </header>
     <main class="main">
-        <section class="promo">
-            <div class=" wrap promo-wrap">
-                <h1 class="promo-title font-48-900 black">
-                    THE BRAND <br>
-                    <span class="font-32-900">OF LUXERIOUS</span> <span class="pink font-32-900">FASHION</span>
-                </h1>
+        <section class="inner-title">
+            <div class="wrap inner-title-wrap">
+                <h1 class="font-24-400 pink">SHOPPING CART</h1>
             </div>
         </section>
-        <section class="categories">
-            <div class="wrap categories-wrap">
-                <h2 class="visually-hidden">категории товаров</h2>
-                <div class=" block-pos block-1">
-                    <div class="offer-text">
-                        <p class="font-16-400 white">30% OFF</p>
-                        <h3 class="font-24-700 pink">FOR WOMEN</h3>
+        <section class="wrap cart">
+            <div class="cart-block-goods">
+                <div class="cart-block-goods-card">
+                    <img class="cart-block-goods-card-img" src="images/item_3.png" alt="goods">
+                    <div class="cart-block-goods-card-desc">
+                        <div class="cart-block-goods-card-desc-title font-24-400">MANGO PEOPLE<br>T-SHIRT</div>
+                        <ul class="cart-block-goods-card-desc-list font-22-400">
+                            <li class="cart-block-goods-card-desc-list-item">Price:<span class="pink"> $300</span></li>
+                            <li class="cart-block-goods-card-desc-list-item">Color:<span> Red</span></li>
+                            <li class="cart-block-goods-card-desc-list-item">Size:<span> Xl</span></li>
+                            <li class="cart-block-goods-card-desc-list-item font-18-400">Quantity:&#8195; <span
+                                    class="quantity-box">
+                                    2</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="block-pos block-2">
-                    <div class="offer-text">
-                        <p class="font-16-400 white">HOT DEAL</p>
-                        <h3 class="font-24-700 pink">FOR MEN</h3>
+                <div class="cart-block-goods-card">
+                    <div class="cart-block-goods-card-img"><img class="img-good" src="images/item_7.png" alt="goods">
+                    </div>
+                    <div class="cart-block-goods-card-desc">
+                        <div class="cart-block-goods-card-desc-title font-24-400">MANGO PEOPLE<br>T-SHIRT</div>
+                        <ul class="cart-block-goods-card-desc-list font-22-400">
+                            <li class="cart-block-goods-card-desc-list-item">Price:<span class="pink"> $300</span></li>
+                            <li class="cart-block-goods-card-desc-list-item">Color:<span> Red</span></li>
+                            <li class="cart-block-goods-card-desc-list-item">Size:<span> Xl</span></li>
+                            <li class="cart-block-goods-card-desc-list-item font-18-400">Quantity: &#8195;<span
+                                    class="quantity-box">
+                                    2</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class=" block-pos block-3">
-                    <div class="offer-text">
-                        <p class="font-16-400 white">NEW ARRIVALS</p>
-                        <h3 class="font-24-700 pink">FOR KIDS</h3>
+                <div class="cart-block-goods-buttons">
+                    <button type="reset" class="cart-block-goods-buttons-btn">CLEAR SHOPPING CART</button>
+                    <button type="button" class="cart-block-goods-buttons-btn">CONTINUE SHOPPING</button>
+                </div>
+            </div>
+            <div class="shipping-block">
+                <form class="shipping-block-form" action="#">
+                    <h2 class="font-16-300 black">SHIPPING ADRESS</h2>
+                    <input class="shipping-block-form-input" type="text" placeholder="Bangladesh">
+                    <input class="shipping-block-form-input" type="text" placeholder="State">
+                    <input class="shipping-block-form-input" type="text" placeholder="Postcode / Zip">
+                    <button class="shipping-block-form-submit font-11-300" type="submit">GET A QUOTE</button>
+                    <div class="shipping-block-checkout-box">
+                        <h3 class="shipping-block-checkout-box-subtitle font-11-300">SUB TOTAL
+                            <span class="margin-price">$900</span>
+                        </h3>
+                        <h2 class="shipping-block-checkout-box-title font-16-300 black">GRAND TOTAL <span
+                                class=" margin-price font-16-400 pink">$900</span></h2>
+                        <hr>
+                        <div class="shipping-block-checkout-box-button white font-16-300">PROCEED TO CHECKOUT</div>
                     </div>
-                </div>
-                <div class=" block-pos block-4">
-                    <div class="offer-text">
-                        <p class="font-16-400 white">LUXIROUS & TRENDY</p>
-                        <h3 class="font-24-700 pink">ACCESORIES</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="catalog wrap">
-            <div class="catalog-text">
-                <h2 class="catalog-title font-32-400 black">Featured Items</h2>
-                <p class="catalog-slogan grey">Shop for items based on what we featured in this week</p>
-            </div>
-            <div class="item"><img src="images/item_1.png" alt="item-1">
-                <div class="item-text">
-                    <a href="#" class="item-title font-13-400 black-1" target="_blank">
-                        ELLERY X M'O CAPSULE
-                    </a>
-                    <p class="item-description">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool
-                        Kym Ellery
-                        teams up with Moda Operandi.</p>
-                    <p class="font-16-400 pink">$52.00</p>
-                </div>
-            </div>
-            <div class="item">
-                <div><img class="item-img" src="images/item_2.png" alt="item-2"></div>
-                <div class="item-text">
-                    <a href="#" class="item-title font-13-400 black-1" target="_blank">
-                        ELLERY X M'O CAPSULE
-                    </a>
-                    <p class="item-description">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool
-                        Kym Ellery
-                        teams up with Moda Operandi.</p>
-                    <p class="font-16-400 pink">$52.00</p>
-                </div>
-            </div>
-            <div class="item"><img src="images/item_3.png" alt="item-3">
-                <div class="item-text">
-                    <a href="#" class="item-title font-13-400 black-1" target="_blank">
-                        ELLERY X M'O CAPSULE
-                    </a>
-                    <p class="item-description">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool
-                        Kym Ellery
-                        teams up with Moda Operandi.</p>
-                    <p class="font-16-400 pink">$52.00</p>
-                </div>
-            </div>
-            <div class="item"><img src="images/item_4.png" alt="item-4">
-                <div class="item-text">
-                    <a href="#" class="item-title font-13-400 black-1" target="_blank">
-                        ELLERY X M'O CAPSULE
-                    </a>
-                    <p class="item-description">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool
-                        Kym Ellery
-                        teams up with Moda Operandi.</p>
-                    <p class="font-16-400 pink">$52.00</p>
-                </div>
-            </div>
-            <div class="item"><img src="images/item_5.png" alt="item-5">
-                <div class="item-text">
-                    <a href="#" class="item-title font-13-400 black-1" target="_blank">
-                        ELLERY X M'O CAPSULE
-                    </a>
-                    <p class="item-description">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool
-                        Kym Ellery
-                        teams up with Moda Operandi.</p>
-                    <p class="font-16-400 pink">$52.00</p>
-                </div>
-            </div>
-            <div class="item"><img src="images/item_6.png" alt="item-6">
-                <div class="item-text">
-                    <a href="#" class="item-title font-13-400 black-1" target="_blank">
-                        ELLERY X M'O CAPSULE
-                    </a>
-                    <p class="item-description">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool
-                        Kym Ellery
-                        teams up with Moda Operandi.</p>
-                    <p class="font-16-400 pink">$52.00</p>
-                </div>
-            </div>
-            <div class="font-16-400 button-browse"><a class="white" target="_blank" href="product.html">Browse All
-                    Product</a>
+                </form>
             </div>
         </section>
     </main>
-    <section class="benefits">
-        <div class="wrap benefits-block">
-            <h2 class="visually-hidden">преимущества товаров</h2>
-            <div class="benefits-section img-1">
-                <div class="benefits-text">
-                    <h3 class="font-20-400 white-1 ">Free Delivery</h3>
-                    <p class="benefits-desc white-1 ">Worldwide delivery on all. Authorit tively morph
-                        next-generation
-                        innov tion with extensive
-                        models.
-                    </p>
-                </div>
-            </div>
-            <div class="benefits-section img-2">
-                <div class="benefits-text">
-                    <h3 class="font-20-400 white-1 ">Sales & discounts</h3>
-                    <p class="benefits-desc white-1 ">Worldwide delivery on all. Authorit tively morph
-                        next-generation
-                        innov tion with extensive
-                        models.
-                    </p>
-                </div>
-            </div>
-            <div class="benefits-section img-3">
-                <div class="benefits-text">
-                    <h3 class="font-20-400 white-1 "> Quality assurance</h3>
-                    <p class="benefits-desc white-1 ">Worldwide delivery on all. Authorit tively morph
-                        next-generation
-                        innov tion with extensive
-                        models.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="feedback">
         <div class="wrap feedback-wrap">
             <h2 class="visually-hidden">обратная связь</h2>

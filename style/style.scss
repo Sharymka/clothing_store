@@ -9,6 +9,13 @@ $font-large: 32px;
   font-size: 14px;
   line-height: 17px;
 }
+
+@mixin font-13-300 {
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+}
+
 @mixin flex($justify-content, $flex-direction, $align-items) {
   display: flex;
   justify-content: $justify-content;
@@ -51,8 +58,18 @@ a {
 }
 
 // стили шрифтов
+.font-11-300 {
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 13px;
+}
 .font-13-400 {
   font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+.font-13-300 {
+  font-weight: 300;
   font-size: 13px;
   line-height: 16px;
 }
@@ -97,6 +114,10 @@ a {
   font-size: 20px;
   line-height: 24px;
 }
+.font-22-400 {
+  font-size: 22px;
+  line-height: 26px;
+}
 
 .font-24-700 {
   font-weight: 700;
@@ -110,6 +131,11 @@ a {
   font-size: $font-huge / 2;
   line-height: 29px;
   text-align: center;
+}
+.font-24-300 {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .font-32-900 {
@@ -660,4 +686,220 @@ input::placeholder {
 }
 .empty-block {
   height: 20px;
+}
+
+// cart page
+.inner-title {
+  background: #f8f3f4;
+  padding: 60px 0;
+  &-wrap {
+    @include flex(start, row, center);
+  }
+}
+.cart {
+  @include flex(space-between, row, start);
+  margin-top: 96px;
+  margin-bottom: 128px;
+  &-block-goods {
+    @include flex(center, column, center);
+    gap: 40px;
+    &-card {
+      @include flex(start, row, center);
+      background-image: url(/images/cross.svg);
+      background-position: top 28px right 22px;
+      background-repeat: no-repeat;
+      box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+      height: 306px;
+      width: 652px;
+      &-img {
+        @include flex(center, row, center);
+        height: 306px;
+        width: 262px;
+        background-color: #f3eeef;
+      }
+      &-desc {
+        margin-left: 32px;
+        padding-top: 33px;
+        padding-bottom: 74px;
+        @include flex(space-between, column, center);
+        &-title {
+          text-align: left;
+          margin-bottom: 37px;
+        }
+        &-list {
+          list-style: none;
+          margin-left: 30px;
+          color: #575757;
+        }
+      }
+    }
+    &-buttons {
+      @include flex(space-between, row, center);
+      width: 100%;
+      margin-top: 72px;
+      &-btn {
+        @include font-14-300;
+        background-color: transparent;
+        padding: 16px 39px;
+        border: 1px solid #a4a4a4;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.quantity-box {
+  text-align: center;
+  line-height: 22px;
+  display: inline-block;
+  height: 25px;
+  width: 44px;
+  border: 1px solid #eaeaea;
+}
+.img-good {
+  height: 306px;
+}
+
+.shipping-block-form {
+  @include flex(start, column, start);
+  margin-top: 20px;
+  &-input {
+    width: 360px;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+  }
+  & input:first-of-type {
+    margin-top: 20px;
+    &::placeholder {
+      color: #b1b1b1;
+    }
+  }
+  &-submit {
+    background-color: transparent;
+    padding: 10px 14px;
+    border: 1px solid #a4a4a4;
+    color: #4a4a4a;
+    cursor: pointer;
+  }
+}
+
+.shipping-block-checkout-box {
+  margin-top: 57px;
+  padding: 39px 43px 42px 44px;
+  background-color: #f5f3f3;
+  @include flex(center, column, flex-end);
+  &-subtitle {
+    margin-bottom: 12px;
+    color: #4a4a4a;
+  }
+  &-button {
+    background-color: $main-color;
+    padding: 15px 40px;
+    cursor: pointer;
+  }
+  & hr {
+    height: 1px;
+    width: 275px;
+    background-color: #e2e2e2;
+    margin: 21px 0 17px 0;
+  }
+}
+
+.margin-price {
+  margin-left: 20px;
+}
+.registration {
+  @include flex(space-between, row, center);
+  padding-top: 64px;
+  margin-bottom: 96px;
+  gap: 128px;
+  &-form {
+    @include flex(center, column, start);
+    &-fieldset {
+      @include flex(center, column, start);
+      gap: 20px;
+      border: none;
+      & input {
+        padding: 12px 15px;
+        width: 360px;
+        outline: none;
+        @include font-13-300;
+        &::placeholder {
+          color: #b1b1b1;
+        }
+      }
+    }
+    & legend {
+      margin-bottom: 20px;
+    }
+    &-radio {
+      @include flex(start, row, center);
+      margin: 32px 0;
+      gap: 20px;
+    }
+    & input[type="radio"] {
+      position: relative;
+      height: 13px;
+      width: 13px;
+      margin-right: 10px;
+      background-color: darkslategray;
+      vertical-align: middle;
+      margin-top: -3px;
+    }
+    & input[type="radio"]::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 2px solid #a4a4a4;
+    }
+    & input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: #a4a4a4;
+      transform: translate(-50%, -50%);
+      visibility: visible;
+    }
+    &-par {
+      color: #b1b1b1;
+      margin-top: 15px;
+    }
+    &-button {
+      @include font-14-300;
+      background-color: $main-color;
+      padding: 16px 30px;
+      color: #ffffff;
+      border: none;
+      margin-top: 40px;
+      cursor: pointer;
+    }
+    & svg {
+      margin-left: 20px;
+    }
+  }
+  &-desc {
+    &-title {
+      margin-bottom: 22px;
+    }
+    &-par {
+      margin-bottom: 21px;
+    }
+    &-benefits {
+      @include flex(start, column, start);
+      gap: 16px;
+      list-style: none;
+      & svg {
+        margin-right: 12px;
+      }
+    }
+  }
 }
