@@ -475,7 +475,7 @@ stop {
   &-title {
     margin-bottom: 13px;
     &:before {
-      content: url(/images/logo.svg);
+      content: url("../images/logo.svg");
       height: 20px;
       width: 20px;
       margin-left: 10px;
@@ -483,7 +483,7 @@ stop {
       transform: translateX(-15px);
     }
     &:after {
-      content: url(/images/logo.svg);
+      content: url("../images/logo.svg");
       height: 20px;
       width: 20px;
       transform: translateX(15px);
@@ -824,7 +824,7 @@ input::placeholder {
     border: 1px solid #ebebeb;
   }
   & input[type="radio"]:checked::after {
-    content: url(/images/check-mark.svg);
+    content: url("../images/check-mark.svg");
     position: absolute;
     top: 65%;
     left: 65%;
@@ -1306,7 +1306,7 @@ summary {
       list-style: none;
 
       & li {
-        background-image: url(/images/check-mark.png);
+        background-image: url("../images/check-mark.png");
         background-position: left top 6px;
         background-repeat: no-repeat;
         padding-left: 40px;
