@@ -43,6 +43,10 @@ body {
 
 a {
   text-decoration: none;
+  color: #222222;
+}
+li {
+  list-style: none;
 }
 
 .visually-hidden {
@@ -110,6 +114,7 @@ a {
 .font-18-400 {
   font-size: 18px;
   font-weight: 400;
+  line-height: 22px;
 }
 
 .font-20-400 {
@@ -202,6 +207,7 @@ a {
 .header {
   background-color: #222222;
   color: #ffffff;
+  position: relative;
   &-wrap {
     @include flex(space-between, row, center);
     padding-top: 18px;
@@ -286,9 +292,12 @@ stop {
     border: none;
     margin-left: 32px;
     transition: all 0.5s;
-    &-item {
-      fill: #ffffff;
+    fill: #ffffff;
+    & button {
+      background-color: #222222;
+      border: none;
     }
+
     & svg {
       fill: #ffffff;
     }
@@ -306,6 +315,50 @@ stop {
   background-color: #222222;
 }
 
+.main-nav {
+  background-color: #ffff;
+  top: 77px;
+  right: 0;
+  height: 764px;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  position: absolute;
+  z-index: 3;
+  display: none;
+  &-title {
+    @include font-14-300;
+    font-weight: 900;
+  }
+  &-box {
+    @include flex(start, column, start);
+    gap: 24px;
+    width: 232px;
+    padding: 37px 0 0 35px;
+    position: relative;
+  }
+  &-close {
+    position: absolute;
+    right: 17px;
+    top: 16px;
+    background-color: transparent;
+    border: none;
+  }
+  &-list {
+    @include flex(start, column, start);
+    gap: 23px;
+    @include font-14-300;
+    color: $main-color;
+  }
+}
+.main-nav-open {
+  display: block;
+}
+
+.summenu-list {
+  @include flex(start, column, start);
+  gap: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
 //раздел main
 .main {
   flex-grow: 2;
@@ -329,6 +382,7 @@ stop {
     left: 55%;
     border-left: 12px solid $main-color;
     padding-left: 16px;
+    z-index: 1;
   }
 }
 // блок категирии
@@ -691,34 +745,127 @@ input::placeholder {
 }
 
 .catalog-filter {
-  @include flex(space-between, row, center);
+  @include flex(start, row, center);
   gap: 30px;
   flex-basis: 100%;
-  margin-right: 34.3%;
-  padding: 40px 0 10px 0;
+  margin: 37px 0 20px 0;
+}
+.filter-col-1 {
+  width: 360px;
+  box-sizing: border-box;
 }
 
 .filter {
   border: none;
   background-color: white;
-  padding: 12px 12px 12px 18px;
-  &-col-1 {
-    flex-grow: 1;
-  }
-  &-col-2 {
-    @include flex(space-between, row, center);
-    gap: 10px;
-    list-style: none;
-    margin-right: 4.5%;
+  outline: #23d5ab;
+
+  &-title {
+    box-sizing: border-box;
+    padding: 13px 16px 13px 17px;
   }
   &-list {
     @include flex(center, row, center);
-    padding: 20px 20px 20px 0;
+  }
+}
+.filter[open] {
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+}
+.filter[open] .filter-title {
+  background-color: #fff;
+  position: relative;
+  z-index: 3;
+}
+.filter-drop {
+  @include flex(center, column, start);
+  gap: 18px;
+  background-color: #fff;
+  padding: 0 16px 16px 16px;
+  width: 360px;
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+}
+
+.filter-col-2 {
+  @include flex(start, row, center);
+  gap: 28px;
+  width: 360px;
+  box-sizing: border-box;
+  list-style: none;
+}
+.filter-list-title {
+  position: relative;
+}
+
+.filter-list-drop {
+  @include flex(start, column, start);
+  gap: 6px;
+  @include font-14-300;
+  position: absolute;
+  padding: 13px 30px 13px 10px;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  z-index: 2;
+  background-color: #fff;
+  margin-top: 10px;
+  & input {
+    margin-right: 13px;
+    position: relative;
+  }
+}
+.filter-list-drop-size {
+  & input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background-color: white;
+    border: 1px solid #ebebeb;
+  }
+  & input[type="radio"]:checked::after {
+    content: url(/images/check-mark.svg);
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    fill: #a4a4a4;
+    transform: translate(-50%, -50%);
+    visibility: visible;
   }
 }
 
+details[open] {
+  color: $main-color;
+}
+details[open] svg {
+  fill: $main-color;
+}
+
+::-webkit-details-marker {
+  display: none;
+}
+summary {
+  display: block;
+}
+
+.filter-subtitle {
+  z-index: 3;
+  @include font-14-300;
+  border-left: 5px solid $main-color;
+  border-bottom: 1px solid #ebebeb;
+  padding: 10px;
+  width: 335px;
+}
+.categories-list {
+  @include flex(start, column, start);
+  gap: 10px;
+  @include font-14-300;
+  color: #6f6e6e;
+  padding: 20px 0 7px 15px;
+}
+
 .arrow-down {
-  margin-left: 10px;
+  margin-left: 12px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -789,30 +936,30 @@ input::placeholder {
       width: 47px;
       background-color: rgba(42, 42, 42, 0.15);
       transition: all 0.5s;
-
       &:hover {
         background-color: $main-color;
         fill: #fff;
-        animation: flip-horizontal-bottom 0.4s
-          cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-        box-shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);
-      }
-      &:hover svg {
-        transform: scale(1.2);
+        animation: shadow-drop-2-center 0.4s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       }
     }
   }
 
-  @keyframes flip-horizontal-bottom {
+  @keyframes shadow-drop-2-center {
     0% {
-      -webkit-transform: rotateX(0);
-      transform: rotateX(0);
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
     100% {
-      -webkit-transform: rotateX(-180deg);
-      transform: rotateX(-180deg);
+      -webkit-transform: translateZ(50px);
+      transform: translateZ(50px);
+      -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
     }
   }
+
   &-block-desc {
     @include flex(center, column, center);
     border: 1px solid #eaeaea;
@@ -918,10 +1065,7 @@ input::placeholder {
     @include flex(center, column, center);
     gap: 40px;
     &-card {
-      @include flex(start, row, center);
-      background-image: url(/images/cross.svg);
-      background-position: top 28px right 22px;
-      background-repeat: no-repeat;
+      @include flex(start, row, start);
       box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
       height: 306px;
       width: 652px;
@@ -944,7 +1088,20 @@ input::placeholder {
           list-style: none;
           margin-left: 30px;
           color: #575757;
+
+          &-item input {
+            outline: none;
+            padding-left: 13px;
+          }
+          &-item input[value] {
+            color: #656565;
+          }
         }
+      }
+      &-cross {
+        flex-grow: 1;
+        margin-left: 129px;
+        margin-top: 25px;
       }
     }
     &-buttons {
@@ -964,6 +1121,9 @@ input::placeholder {
           color: #ffff;
           outline-offset: -7px;
           outline: 1px dashed #fff;
+        }
+        &:hover a {
+          color: #ffff;
         }
       }
     }
@@ -1144,6 +1304,13 @@ input::placeholder {
       @include flex(start, column, start);
       gap: 16px;
       list-style: none;
+
+      & li {
+        background-image: url(/images/check-mark.png);
+        background-position: left top 6px;
+        background-repeat: no-repeat;
+        padding-left: 40px;
+      }
       & svg {
         margin-right: 12px;
       }
