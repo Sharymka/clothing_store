@@ -6,7 +6,17 @@ $color-time: 12s;
 $step: $color-time/4;
 
 // примеси
+@mixin font-10-400 {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
 @mixin font-12-300 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+@mixin font-12-400 {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
@@ -56,8 +66,18 @@ $step: $color-time/4;
   font-size: 18px;
   line-height: 22px;
 }
+@mixin font-18-400 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
 @mixin font-24-900 {
   font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+@mixin font-24-400 {
+  font-weight: 400;
   font-size: 24px;
   line-height: 29px;
 }
@@ -66,6 +86,12 @@ $step: $color-time/4;
   font-size: 38px;
   line-height: 43px;
 }
+@mixin font-22-400 {
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
 @mixin flex($justify-content, $flex-direction, $align-items) {
   display: flex;
   justify-content: $justify-content;
@@ -108,7 +134,7 @@ li {
 
 .wrap {
   padding: 0 16px;
-
+  // outline: 1px solid red;
   max-width: 1140px;
   margin: 0 auto;
   box-sizing: content-box;
@@ -120,6 +146,7 @@ li {
   font-size: 11px;
   line-height: 13px;
 }
+
 .font-13-400 {
   font-weight: 400;
   font-size: 13px;
@@ -983,7 +1010,7 @@ summary {
   &-block-img {
     @include flex(space-between, row, center);
     width: 100%;
-    height: 777px;
+    max-height: 777px;
     background-color: #f7f7f7;
     &-item {
       @include flex(center, row, center);
@@ -1118,27 +1145,30 @@ summary {
 }
 .cart {
   @include flex(space-between, row, start);
+  gap: 40px;
   margin-top: 96px;
   margin-bottom: 128px;
   &-block-goods {
     @include flex(center, column, center);
     gap: 40px;
+    flex-basis: 57.3%;
     &-card {
-      @include flex(start, row, start);
+      @include flex(space-between, row, start);
       box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
-      height: 306px;
-      width: 652px;
+      max-height: 306px;
+      width: 100%;
       &-img {
         @include flex(center, row, center);
-        height: 306px;
+        max-height: 306px;
         width: 262px;
         background-color: #f3eeef;
       }
       &-desc {
-        margin-left: 32px;
-        padding-top: 33px;
-        padding-bottom: 74px;
-        @include flex(space-between, column, center);
+        align-self: flex-start;
+        margin-top: 25px;
+        justify-self: flex-start;
+        @include flex(space-between, column, start);
+        flex-grow: 0.6;
         &-title {
           text-align: left;
           margin-bottom: 37px;
@@ -1150,7 +1180,6 @@ summary {
 
           &-item input {
             outline: none;
-            padding-left: 13px;
           }
           &-item input[value] {
             color: #656565;
@@ -1158,9 +1187,11 @@ summary {
         }
       }
       &-cross {
-        flex-grow: 1;
-        margin-left: 129px;
-        margin-top: 25px;
+        @include flex(flex-end, row, center);
+        justify-self: end;
+        // flex-basis: 20%;
+        margin-top: 20px;
+        margin-right: 20px;
       }
     }
     &-buttons {
@@ -1168,9 +1199,11 @@ summary {
       width: 100%;
       margin-top: 72px;
       &-btn {
+        @include flex(center, row, center);
         @include font-14-300;
+        flex-basis: 34.45%;
         background-color: transparent;
-        padding: 16px 39px;
+        padding: 16px 0px;
         border: 1px solid #a4a4a4;
         cursor: pointer;
         transition: background-color ease 0.3s, outline-offset ease-in-out 0.3s;
@@ -1197,14 +1230,20 @@ summary {
   border: 1px solid #eaeaea;
 }
 .img-good {
-  height: 306px;
+  max-height: 306px;
 }
-
+.shipping-block {
+  @include flex(start, row, start);
+  flex-basis: 31.5%;
+  &-inputs {
+    width: 99.5%;
+  }
+}
 .shipping-block-form {
   @include flex(start, column, start);
   margin-top: 20px;
   &-input {
-    width: 360px;
+    width: 100%;
     padding: 14px 16px;
     margin-bottom: 22px;
   }
@@ -1232,6 +1271,7 @@ summary {
 
 .shipping-block-checkout-box {
   margin-top: 57px;
+  width: 100%;
   padding: 39px 43px 42px 44px;
   background-color: #f5f3f3;
   @include flex(center, column, flex-end);
@@ -1240,8 +1280,10 @@ summary {
     color: #4a4a4a;
   }
   &-button {
+    @include flex(center, row, center);
     background-color: $main-color;
-    padding: 15px 40px;
+    width: 100%;
+    padding: 15px 0px;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
@@ -1251,7 +1293,7 @@ summary {
   }
   & hr {
     height: 1px;
-    width: 275px;
+    width: 100%;
     background-color: #e2e2e2;
     margin: 21px 0px 17px 0px;
   }
@@ -1440,7 +1482,12 @@ summary {
   .benefits-section {
     min-height: 150px;
   }
+  // cart page
+  .cart-block-goods {
+    flex-basis: 65%;
+  }
 }
+
 // планшетная версия
 @media (max-width: 967px) {
   .promo-wrap {
@@ -1466,11 +1513,41 @@ summary {
   .feedback-quote {
     flex-grow: 1;
   }
+
+  // cart page
+  .cart {
+    @include flex(center, column, center);
+  }
+  .cart-block-goods {
+    width: 90%;
+  }
+  .cart-block-goods {
+    width: 70%;
+  }
+  .cart-block-goods-card-desc-title {
+    @include font-22-400;
+    margin-left: 10px;
+  }
+  .cart-block-goods-buttons {
+    @include flex(center, row, center);
+    gap: 45px;
+  }
+  .shipping-block-form {
+    @include flex(space-around, row, center);
+    gap: 0;
+  }
+  .shipping-block-inputs {
+    flex-basis: 39%;
+  }
+  .shipping-block-checkout-box {
+    margin-top: 10px;
+    flex-basis: 40%;
+  }
 }
 
 @media (max-width: 870px) {
   .wrap {
-    width: 95%;
+    width: 96%;
   }
   .promo {
     min-height: 450px;
@@ -1539,10 +1616,28 @@ summary {
   .display-none {
     display: none;
   }
+
+  // cart page
+  .cart-block-goods {
+    width: 90%;
+  }
+  .shipping-block-form {
+    @include flex(space-between, row, center);
+    gap: 0;
+  }
+  .shipping-block-inputs {
+    flex-basis: 45%;
+  }
+  .shipping-block-checkout-box {
+    flex-basis: 48%;
+  }
 }
 
 // catalog page
 @media (max-width: 768px) {
+  .wrap {
+    width: 97%;
+  }
   .catalog-filter {
     @include flex(space-between, row, center);
     width: 55%;
@@ -1568,6 +1663,43 @@ summary {
   }
   .filter-title svg {
     transform: scale(2);
+  }
+  // cart page
+  .cart {
+    gap: 36px;
+  }
+  .cart-block-goods {
+    width: 100%;
+  }
+  .cart-block-goods-card-desc-title {
+    @include font-24-400;
+  }
+
+  .shipping-block-inputs {
+    flex-basis: 49.4%;
+  }
+  .shipping-block-checkout-box {
+    flex-basis: 49.4%;
+  }
+  .cart-block-goods-buttons {
+    margin-top: 22px;
+  }
+  // catalog page
+  .catalog .item:last-child {
+    display: none;
+  }
+  .product-block-img {
+    border-bottom: 1px solid #eaeaea;
+  }
+  .product-block-desc {
+    width: 100%;
+    margin-top: 0;
+    border: none;
+  }
+  .line-bottom {
+    width: 100%;
+    height: 1px;
+    background-color: #eaeaea;
   }
 }
 
@@ -1642,6 +1774,24 @@ summary {
     padding-right: 2px;
     margin-right: 0;
   }
+  // cart page
+  .shipping-block-checkout-box-button {
+    text-align: center;
+  }
+  .cart-block-goods-card-desc-title {
+    @include font-22-400;
+  }
+  // product page
+  .product-block-img-item {
+    flex-basis: 87%;
+  }
+  .product-block-img-item img {
+    width: 100%;
+  }
+  .product-block-img-arrow {
+    max-height: 47px;
+    max-width: 47px;
+  }
 }
 
 @media (max-width: 625px) {
@@ -1673,15 +1823,71 @@ summary {
   .wrap {
     width: 92%;
   }
+
   .block-pos {
     width: 30%;
     min-height: 150px;
   }
+
   .offer-text h3 {
     @include font-18-700;
   }
+
   .offer-text p {
     @include font-14-400;
+  }
+
+  // cart page
+
+  .inner-title-wrap {
+    @include flex(center, row, center);
+  }
+
+  .cart-block-goods-card,
+  .cart-block-goods-card-img,
+  .img-good {
+    max-height: 240px;
+  }
+  .cart-block-goods-card-img {
+    flex-basis: 38%;
+  }
+  .cart-block-goods-card-img,
+  .cart-block-goods-buttons-btn {
+    @include font-12-400;
+  }
+
+  .cart-block-goods-card-desc-title {
+    @include font-18-400;
+  }
+  .cart-block-goods-card-desc-list,
+  .quantity-box {
+    @include font-16-400;
+  }
+
+  .shipping-block-form {
+    @include flex(center, column, center);
+    gap: 48px;
+  }
+  .shipping-block-inputs {
+    width: 65.5%;
+  }
+  .shipping-block-checkout-box {
+    width: 65.5%;
+  }
+  // product page
+  // product page
+  .product {
+    margin-bottom: 64px;
+  }
+  .product-block-desc-filter-list {
+    @include font-12-400;
+  }
+  .product-block-desc-button-cart {
+    padding: 10px 53px 10px 24px;
+  }
+  .product-block-desc-button-cart svg {
+    width: 26px;
+    height: 24px;
   }
 }
 
@@ -1732,12 +1938,55 @@ summary {
     @include flex(center, column, center);
     gap: 32px;
   }
+  // cart page
+
+  .cart-block-goods-card,
+  .cart-block-goods-card-img,
+  .img-good {
+    max-height: 188px;
+  }
+  .cart-block-goods-card-desc-title {
+    margin-bottom: 25px;
+  }
+  .cart-block-goods-card-cross {
+    margin-right: 7px;
+  }
+  .cart-block-goods-card-cross img {
+    width: 10px;
+    height: 10px;
+  }
+  .cart-block-goods-card-desc-title {
+    @include font-16-400;
+  }
+  .quantity-box {
+    @include font-10-400;
+    height: 16px;
+    width: 25px;
+  }
+
+  .cart-block-goods-buttons-btn {
+    text-transform: lowercase;
+    @include font-14-400;
+    padding: 10px 0px;
+  }
+  .cart-block-goods-buttons-btn {
+    flex-basis: 38%;
+  }
+  .shipping-block-checkout-box,
+  .shipping-block-inputs {
+    width: 85.5%;
+  }
+  // product page
 }
 
 // мобильная версия
 @media (max-width: 410px) {
   .wrap {
-    width: 91%;
+    width: 95%;
+    padding: 0px 10px;
+  }
+  .header-wrap {
+    padding: 18px 0;
   }
   .mobile-display {
     display: none;
@@ -1811,5 +2060,36 @@ summary {
   }
   .filter-col-1 {
     margin-left: 5px;
+  }
+  // cart page
+  .cart-block-goods {
+    gap: 30px;
+  }
+  .cart-block-goods-buttons {
+    margin-top: 0px;
+  }
+  .cart-block-goods-buttons-btn {
+    flex-basis: 48.8%;
+  }
+  .shipping-block-checkout-box,
+  .shipping-block-inputs {
+    width: 100%;
+  }
+  .cart-block-goods-buttons {
+    @include flex(space-between, row, center);
+    gap: 0;
+  }
+  // product page
+  .product-block-desc {
+    padding: 64px 0px;
+  }
+  .product-block-desc-text {
+    width: 86.9%;
+  }
+  .product-block-desc-text {
+    text-align: center;
+  }
+  .product-block-desc-filter-list {
+    @include font-10-400;
   }
 }
