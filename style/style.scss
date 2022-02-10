@@ -4,6 +4,14 @@ $font-huge: 48px;
 $font-large: 32px;
 $color-time: 12s;
 $step: $color-time/4;
+$light-black: #222222;
+$dark-black: black;
+$white: #ffffff;
+$white-1: #fbfbfb;
+$light-grey: #c4c4c4;
+$grey: #9f9f9f;
+$dark-grey: #6f6e6e;
+$dark-gray-1: #5d5d5d;
 
 // примеси
 @mixin font-10-400 {
@@ -91,6 +99,11 @@ $step: $color-time/4;
   line-height: 26px;
   font-weight: 400;
 }
+@mixin font-48-900 {
+  font-weight: 900;
+  font-size: $font-huge;
+  line-height: 58px;
+}
 
 @mixin flex($justify-content, $flex-direction, $align-items) {
   display: flex;
@@ -98,11 +111,29 @@ $step: $color-time/4;
   flex-direction: $flex-direction;
   align-items: $align-items;
 }
+@mixin font(
+  $font-size,
+  $font-weight,
+  $line-height,
+  $color,
+  $text-align,
+  $text-transform
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  text-transform: $text-transform;
+  text-align: $text-align;
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: Lato;
   box-sizing: border-box;
+}
+.footer-bottom {
+  flex-grow: 2;
 }
 
 body {
@@ -134,7 +165,7 @@ li {
 
 .wrap {
   padding: 0 16px;
-  // outline: 1px solid red;
+  outline: 1px solid red;
   max-width: 1140px;
   margin: 0 auto;
   box-sizing: content-box;
@@ -235,23 +266,10 @@ li {
   line-height: 36px;
 }
 
-.font-48-900 {
-  font-weight: 900;
-  font-size: $font-huge;
-  line-height: 58px;
-}
-
 .italic {
   font-style: italic;
 }
 // стили цвета
-.pink {
-  color: $main-color;
-}
-
-.white {
-  color: #ffffff;
-}
 
 .white-1 {
   color: #fbfbfb;
@@ -269,19 +287,11 @@ li {
   color: #c4c4c4;
 }
 
-.black {
-  color: #222222;
-}
-
-.black-1 {
-  color: #000000;
-}
-
 .black-3 {
   color: #222224;
 }
 
-//раздел header
+//block header
 .header {
   background-color: #222222;
   color: #ffffff;
@@ -437,7 +447,7 @@ stop {
   padding-left: 20px;
   padding-top: 20px;
 }
-//раздел main
+//block main
 .promo {
   background-color: #f1e4e6;
   min-height: 768px;
@@ -450,15 +460,24 @@ stop {
     position: relative;
   }
   &-title {
+    @include font(48px, 900, 58px, $light-black, left, uppercase);
     position: absolute;
     top: 38%;
     left: 55%;
     border-left: 12px solid $main-color;
     padding-left: 16px;
     z-index: 1;
+    line-height: 40px;
+    & span:first-of-type {
+      @include font(32px, 900, 38px, $light-black, left, uppercase);
+    }
+    & span:last-of-type {
+      @include font(32px, 900, 38px, $main-color, left, uppercase);
+    }
   }
 }
-// блок категирии
+
+// block categories
 .categories {
   margin-bottom: 90px;
   margin-top: 65px;
@@ -496,6 +515,13 @@ stop {
 // расположение текста на категориях с помощью flex
 .offer-text {
   @include flex(center, column, center);
+  text-transform: uppercase;
+  & p {
+    @include font(16px, 400, 19px, $white, center, uppercase);
+  }
+  & h3 {
+    @include font(24px, 700, 30px, $main-color, center, uppercase);
+  }
 }
 
 /* расположение текста на категориях с помощью position: relative-absolute
@@ -510,7 +536,7 @@ stop {
     text-align: center;
   } */
 
-// блок каталог
+// block catalog
 .catalog {
   @include flex(space-between, row, center);
   flex-wrap: wrap;
@@ -518,36 +544,43 @@ stop {
   gap: 30px;
   &-text {
     flex-basis: 100%;
-    text-align: center;
     margin-bottom: 40px;
   }
   &-title {
+    @include font(32px, 400, 36px, $light-black, center, none);
     margin-bottom: 6px;
   }
   &-slogan {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $grey, center, none);
   }
 }
 
 .item {
+  @include flex(space-between, column, start);
   position: relative;
   width: 360px;
+  min-height: 584.5px;
   overflow: hidden;
   background-color: #f3eeef;
+  box-sizing: border-box;
   &-img {
     background-color: #f3eeef;
     height: 420px;
     transform: translate(50%) scale(0.95);
   }
   &-text {
+    @include flex(space-between, column, start);
+    width: 100%;
+    min-height: 164.73px;
     position: relative;
     padding: 25px 30px 20px 16px;
     background: #f8f8f8;
-    margin-top: -3px;
+    flex-flow: 1;
     overflow: hidden;
     z-index: 1;
   }
   &-title {
+    @include font(13px, 400, 16px, $dark-black, left, uppercase);
     margin-bottom: 13px;
     &:before {
       content: url("../images/logo.svg");
@@ -577,11 +610,13 @@ stop {
       transform: translateX(0);
     }
   }
-
   &-description {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $dark-gray-1, left, none);
+    flex-grow: 1;
     margin-bottom: 18px;
-    color: #5d5d5d;
+  }
+  &-price {
+    @include font(16px, 400, 19px, $main-color, left, none);
   }
   &-overlay {
     @include flex(center, row, center);
@@ -599,16 +634,25 @@ stop {
     opacity: 1;
   }
 }
+
+.price-bottom {
+  flex-grow: 2;
+}
+
+.img-center {
+  width: 100%;
+  @include flex(center, row, center);
+}
+
 .bounce {
   transition-timing-function: cubic-bezier(0, 0.75, 0.46, 1.01);
 }
 
 .btn-add {
-  @include font-14-300;
+  @include font(14px, 400, 17px, $white, center, capitalize);
   @include flex(center, row, center);
   background-color: transparent;
   border: 1px solid #ffffff;
-  color: #ffffff;
   padding: 11px 13px;
   vertical-align: middle;
   & img {
@@ -620,8 +664,8 @@ stop {
 }
 
 .button-browse {
+  @include font(16px, 400, 19px, $main-color, center, capitalize);
   margin-bottom: 95px;
-  color: $main-color;
   background-color: transparent;
   outline: 1px solid $main-color;
   margin-left: auto;
@@ -629,10 +673,10 @@ stop {
   transition: all 0.5s;
   height: 48px;
   width: 212px;
-
   & a {
     display: block;
     padding: 14px 38px;
+    color: $main-color;
   }
   &:hover {
     outline: 1px solid $main-color;
@@ -649,7 +693,8 @@ stop {
     color: #ffffff;
   }
 }
-// блок преимущества
+
+// block benefits
 .benefits {
   background-color: #222224;
   padding: 103px 0;
@@ -669,8 +714,13 @@ stop {
   &-text {
     @include flex(center, column, center);
     gap: 16px;
+    text-transform: none;
+  }
+  &-title {
+    @include font(20px, 400, 24px, $white-1, center, none);
   }
   &-desc {
+    @include font(14px, 300, 17px, $white-1, center, none);
     text-align: center;
     @include font-14-300;
     opacity: 0.7;
@@ -686,7 +736,8 @@ stop {
 .img-3 {
   background-image: url(../images/quality.svg);
 }
-// блок обратная связь
+
+// block feedback
 .feedback {
   background-image: url(../images/feedback.jpg);
   min-height: 448px;
@@ -707,19 +758,32 @@ stop {
     flex-basis: 38%;
   }
   &-title {
+    @include font(24px, 700, 27px, $dark-black, center, uppercase);
     margin-bottom: 27px;
+    text-transform: uppercase;
+    & span {
+      @include font(18px, 400, 22px, $dark-black, center, uppercase);
+    }
   }
   &-input {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $dark-black, left, none);
     padding: 20px;
     width: 256px;
     border-radius: 25px 0 0 25px;
     background-color: #e1e1e1;
     outline: none;
     border: none;
+    transition: background-color 0.3s ease;
+    &::placeholder {
+      @include font(14px, 400, 17px, $light-black, left, capitalize);
+      opacity: 0.67;
+    }
+    &:hover {
+      background-color: #e9dcde;
+    }
   }
   &-submit {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $white, left, none);
     padding: 20px;
     border-radius: 0 25px 25px 0;
     background-color: $main-color;
@@ -734,6 +798,7 @@ stop {
     }
   }
 }
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -745,27 +810,26 @@ stop {
     background-position: 0% 50%;
   }
 }
+
+.quote-text {
+  @include font(20px, 400, 24px, $light-black, center, none);
+}
+
 .quote-img {
   align-self: center;
   margin-bottom: 30px;
 }
 
-.quote-text {
-  text-align: center;
-}
-
-input::placeholder {
-  color: #222224;
-  opacity: 0.67;
-}
-
-// раздел footer
+// block footer
 .footer {
   background-color: #222222;
   min-height: 79px;
   &-wrap {
     @include flex(space-between, row, center);
     min-height: 79px;
+  }
+  &-col-1 {
+    @include font(16px, 400, 19px, $white-1, center, capitalize);
   }
   &-col-2 {
     @include flex(space-between, row, center);
@@ -845,6 +909,10 @@ input::placeholder {
   &-title {
     box-sizing: border-box;
     padding: 13px 16px 13px 17px;
+    cursor: pointer;
+    & svg {
+      margin-left: 10px;
+    }
   }
   &-list {
     @include flex(center, row, center);
@@ -876,6 +944,7 @@ input::placeholder {
   width: 360px;
   box-sizing: border-box;
   list-style: none;
+  cursor: pointer;
 }
 .filter-list-title {
   position: relative;
@@ -919,6 +988,7 @@ input::placeholder {
 details[open] {
   color: $main-color;
 }
+
 details[open] svg {
   fill: $main-color;
 }
@@ -958,7 +1028,6 @@ summary {
 .pagination-list {
   @include flex(center, row, center);
   list-style: none;
-
   margin-left: auto;
   margin-right: auto;
   gap: 10px;
@@ -966,6 +1035,13 @@ summary {
   border-radius: 3px;
   padding: 16px;
   width: 283px;
+  outline-offset: 0px;
+  outline: $main-color;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    outline: 1px solid #ebebeb;
+    outline-offset: -5px;
+  }
 }
 .pagination-link:nth-child(21) {
   margin-left: -12px;
@@ -976,9 +1052,17 @@ summary {
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-  transition: all 0.2s;
-  &:hover {
-    transform: scale(1.3);
+  & a {
+    transition: all 0.3s;
+  }
+  & a:hover,
+  svg:hover {
+    transform: scale(1.2);
+    color: $main-color;
+  }
+  &:hover svg {
+    color: $main-color;
+    fill: $main-color;
   }
 }
 
@@ -988,17 +1072,14 @@ summary {
 
   // transition: all 0.2s;
 }
-.pagination-list a:hover {
-  color: $main-color;
-  // transform: scale(1.3);
-}
+
 .pagination-link:not(:nth-child(n + 21)):nth-child(n + 8) {
   position: absolute;
   visibility: hidden;
 }
 
 .pagination-link:nth-child(7)::after {
-  content: ".....";
+  content: ".... ";
   color: #c4c4c4;
 }
 // страница product
@@ -1156,7 +1237,12 @@ summary {
       @include flex(space-between, row, start);
       box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
       max-height: 306px;
+      background-color: #ffff;
       width: 100%;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(1.03);
+      }
       &-img {
         @include flex(center, row, center);
         max-height: 306px;
@@ -1246,11 +1332,23 @@ summary {
     width: 100%;
     padding: 14px 16px;
     margin-bottom: 22px;
+    transition: all 0.4s;
+    outline: none;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:hover::placeholder {
+      color: $main-color;
+    }
   }
   & input:first-of-type {
     margin-top: 20px;
+    transition: all 0.4s;
     &::placeholder {
       color: #b1b1b1;
+    }
+    &:hover::placeholder {
+      color: $main-color;
     }
   }
   &-submit {
@@ -1275,6 +1373,10 @@ summary {
   padding: 39px 43px 42px 44px;
   background-color: #f5f3f3;
   @include flex(center, column, flex-end);
+  transition: box-shadow 0.4s ease;
+  &:hover {
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.21);
+  }
   &-subtitle {
     margin-bottom: 12px;
     color: #4a4a4a;
@@ -1303,23 +1405,34 @@ summary {
   margin-left: 20px;
 }
 .registration {
-  @include flex(space-between, row, center);
+  @include flex(space-between, row, start);
   padding-top: 64px;
   margin-bottom: 96px;
-  gap: 128px;
+  // gap: 128px;
   &-form {
     @include flex(center, column, start);
+    flex-basis: 31.6%;
     &-fieldset {
       @include flex(center, column, start);
+      width: 100%;
       gap: 20px;
       border: none;
       & input {
         padding: 12px 15px;
-        width: 360px;
+        width: 100%;
+        border: 1px solid #a4a4a4;
         outline: none;
         @include font-13-300;
+        transition: transform 0.3s, color 0.3s;
+        &:hover {
+          transform: scale(1.05);
+          color: $main-color;
+        }
         &::placeholder {
           color: #b1b1b1;
+        }
+        &:hover::placeholder {
+          color: $main-color;
         }
       }
     }
@@ -1330,6 +1443,10 @@ summary {
       @include flex(start, row, center);
       margin: 32px 0px;
       gap: 20px;
+
+      &-invisible {
+        display: none;
+      }
     }
     & input[type="radio"] {
       position: relative;
@@ -1339,6 +1456,10 @@ summary {
       background-color: darkslategray;
       vertical-align: middle;
       margin-top: -3px;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
     & input[type="radio"]::before {
       content: "";
@@ -1371,7 +1492,8 @@ summary {
     &-button {
       @include font-14-300;
       background-color: $main-color;
-      padding: 16px 30px;
+      width: 46.5%;
+      padding: 16px 0px;
       color: #ffffff;
       border: none;
       margin-top: 40px;
@@ -1395,6 +1517,7 @@ summary {
     }
   }
   &-desc {
+    flex-basis: 53.5%;
     &-title {
       margin-bottom: 22px;
     }
@@ -1541,6 +1664,10 @@ summary {
   }
   .shipping-block-checkout-box {
     margin-top: 10px;
+    flex-basis: 40%;
+  }
+  // registration page
+  .registration-form {
     flex-basis: 40%;
   }
 }
@@ -1695,6 +1822,32 @@ summary {
     height: 1px;
     background-color: #eaeaea;
   }
+  // registration page
+
+  .registration-desc-title,
+  .registration-desc-par,
+  .registration-desc-benefits {
+    @include font-16-400;
+  }
+  .registration-desc-title {
+    margin-bottom: 32px;
+  }
+  .registration-desc-benefits {
+    gap: 18px;
+  }
+  .registration-desc-benefits li {
+    line-height: 23px;
+  }
+  .registration-form-button {
+    width: 57.5%;
+  }
+  .registration-form-button svg {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .registration-form-radio-invisible {
+    display: block;
+  }
 }
 
 @media (max-width: 695px) {
@@ -1808,6 +1961,17 @@ summary {
     gap: 20px;
     width: 360px;
   }
+  // registration page
+  .registration-form {
+    flex-basis: 44%;
+  }
+  .registration-desc {
+    flex-basis: 50%;
+  }
+  .registration-form-button {
+    width: 65%;
+    padding: 12px 0px;
+  }
 }
 
 @media (max-width: 605px) {
@@ -1866,7 +2030,6 @@ summary {
     width: 65.5%;
   }
   // product page
-  // product page
   .product {
     margin-bottom: 64px;
   }
@@ -1879,6 +2042,14 @@ summary {
   .product-block-desc-button-cart svg {
     width: 26px;
     height: 24px;
+  }
+  // registration page
+  .registration-form {
+    flex-basis: 47%;
+  }
+  .registration-desc-benefits li {
+    background-size: 20px;
+    padding-left: 30px;
   }
 }
 
@@ -1970,7 +2141,18 @@ summary {
   .shipping-block-inputs {
     width: 85.5%;
   }
-  // product page
+  // registration page
+  .registration {
+    @include flex(center, column, center);
+    gap: 40px;
+  }
+  .registration-form {
+    width: 90.4%;
+  }
+  .registration-form-button {
+    width: 46.5%;
+    padding: 16px;
+  }
 }
 
 // мобильная версия
@@ -2085,5 +2267,15 @@ summary {
   }
   .product-block-desc-filter-list {
     @include font-10-400;
+  }
+  // registration page
+  .registration {
+    margin-top: 40px;
+  }
+  .registration-form {
+    width: 95.5%;
+  }
+  .registration-form-button {
+    width: 49%;
   }
 }
