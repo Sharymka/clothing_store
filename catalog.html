@@ -28,7 +28,7 @@
     <header class="header">
         <div class="wrap header-wrap">
             <div class="header-col-1">
-                <a class="logo" href="index.html" target="_blank">
+                <a class="logo" href="index.html">
                     <svg width="44" height="38" viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="44" height="38" fill="url(#pattern0)" />
@@ -102,7 +102,7 @@
                                 fill="#6F6E6E" />
                         </svg>
                     </button>
-                    <p class="main-nav-title black">MENU</p>
+                    <p class="main-nav-title">MENU</p>
                     <ul class="main-nav-list">
                         <li class="main-nav-item"><a href="catalog.html" class="main-nav-link pink">MAN</a>
                             <ul class="summenu-list">
@@ -152,7 +152,7 @@
                         <ul class="breadcrumbs-list">
                             <li class="breadcrumbs-link"><a class="breadcrumbs-text" href="index.html"
                                     target="_blank">HOME</a></li>
-                            <li class="breadcrumbs-link"><a class="breadcrumbs-text" href="#" target="_blank"> MEN</a>
+                            <li class="breadcrumbs-link"><a class="breadcrumbs-text" href="#"> MEN</a>
                             </li>
                             <li class=" breadcrumbs-link "><a class="pink breadcrumbs-text-bold" href="#">NEW
                                     ARRIVALS</a>
@@ -165,7 +165,7 @@
                 <h2 class="visually-hidden">каталог товаров</h2>
                 <div class="catalog-filter">
                     <div class="filter-col-1">
-                        <details class="filter font-14-700">
+                        <details class="filter">
                             <summary class="filter-title"><span class="title-invisible">FILTER</span>&nbsp;<svg
                                     height="10" viewBox="0 0 15 10" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -173,7 +173,7 @@
                                 </svg>
                             </summary>
                             <div class="filter-drop">
-                                <details open>
+                                <details class="sub-filter" open>
                                     <summary class="filter-subtitle">CATEGORY</summary>
                                     <ul class="categories-list grey-1">
                                         <li class="categories-item"><a href="#" class="categories-link">Accessories</a>
@@ -196,7 +196,7 @@
                                         <li class="categories-item"><a href="#" class="categories-link">Tanks</a></li>
                                     </ul>
                                 </details>
-                                <details>
+                                <details class="sub-filter">
                                     <summary class="filter-subtitle">BRAND</summary>
                                     <ul class="categories-list">
                                         <li class="categories-item"><a href="#" class="categories-link">Accessories</a>
@@ -219,7 +219,7 @@
                                         <li class="categories-item"><a href="#" class="categories-link">Tanks</a></li>
                                     </ul>
                                 </details>
-                                <details>
+                                <details class="sub-filter">
                                     <summary class="filter-subtitle">DESIGNER</summary>
                                     <ul class="categories-list">
                                         <li class="categories-item"><a href="#" class="categories-link">Accessories</a>
@@ -245,7 +245,7 @@
                             </div>
                         </details>
                     </div>
-                    <ul class="filter-col-2 font-14-400 grey-1">
+                    <ul class="filter-col-2">
                         <li class="filter-list">
                             <details class="filter-list-box">
                                 <summary class="filter-list-title">TRENDING NOW
@@ -255,20 +255,23 @@
                                             d="M5.00214 5.00214C4.83521 5.00247 4.67343 4.94433 4.54488 4.83782L0.258102 1.2655C0.112196 1.14422 0.0204417 0.969958 0.00302325 0.781035C-0.0143952 0.592112 0.0439493 0.404007 0.165221 0.258101C0.286493 0.112196 0.460759 0.0204417 0.649682 0.00302327C0.838605 -0.0143952 1.02671 0.043949 1.17262 0.165221L5.00214 3.36602L8.83167 0.279536C8.90475 0.220188 8.98884 0.175869 9.0791 0.149125C9.16937 0.122382 9.26403 0.113741 9.35764 0.1237C9.45126 0.133659 9.54198 0.162021 9.6246 0.207156C9.70722 0.252292 9.7801 0.313311 9.83906 0.386705C9.90449 0.460167 9.95405 0.546351 9.98462 0.639855C10.0152 0.733359 10.0261 0.83217 10.0167 0.930097C10.0073 1.02802 9.97784 1.12296 9.93005 1.20895C9.88227 1.29494 9.81724 1.37013 9.73904 1.42982L5.45225 4.88068C5.32002 4.97036 5.16154 5.01312 5.00214 5.00214Z" />
                                     </svg>
                                 </summary>
-                                <ul class="filter-list-drop grey-1">
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="xs"
+                                <ul class="filter-list-drop">
+                                    <li class="filter-list-drop-size"><input type="radio" name="content" value="content"
                                             checked>content
                                     </li>
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="s">content
+                                    <li class="filter-list-drop-size"><input type="radio" name="content"
+                                            value="content">content
                                     </li>
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="m">content
+                                    <li class="filter-list-drop-size"><input type="radio" name="content"
+                                            value="content">content
                                     </li>
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="l">content
+                                    <li class="filter-list-drop-size"><input type="radio" name="content"
+                                            value="content">content
                                     </li>
                                 </ul>
                             </details>
                         </li>
-                        <li class="filter-list ">
+                        <li class="filter-list">
                             <details class="filter-list-box">
                                 <summary class="filter-list-title">SIZE
                                     <svg class="arrow-down" width="11" height="6" viewBox="0 0 11 6"
@@ -277,7 +280,7 @@
                                             d="M5.00214 5.00214C4.83521 5.00247 4.67343 4.94433 4.54488 4.83782L0.258102 1.2655C0.112196 1.14422 0.0204417 0.969958 0.00302325 0.781035C-0.0143952 0.592112 0.0439493 0.404007 0.165221 0.258101C0.286493 0.112196 0.460759 0.0204417 0.649682 0.00302327C0.838605 -0.0143952 1.02671 0.043949 1.17262 0.165221L5.00214 3.36602L8.83167 0.279536C8.90475 0.220188 8.98884 0.175869 9.0791 0.149125C9.16937 0.122382 9.26403 0.113741 9.35764 0.1237C9.45126 0.133659 9.54198 0.162021 9.6246 0.207156C9.70722 0.252292 9.7801 0.313311 9.83906 0.386705C9.90449 0.460167 9.95405 0.546351 9.98462 0.639855C10.0152 0.733359 10.0261 0.83217 10.0167 0.930097C10.0073 1.02802 9.97784 1.12296 9.93005 1.20895C9.88227 1.29494 9.81724 1.37013 9.73904 1.42982L5.45225 4.88068C5.32002 4.97036 5.16154 5.01312 5.00214 5.00214Z" />
                                     </svg>
                                 </summary>
-                                <ul class="filter-list-drop grey-1">
+                                <ul class="filter-list-drop">
                                     <li class="filter-list-drop-size"><input type="radio" name="size" value="xs"
                                             checked>XS
                                     </li>
@@ -296,15 +299,18 @@
                                             d="M5.00214 5.00214C4.83521 5.00247 4.67343 4.94433 4.54488 4.83782L0.258102 1.2655C0.112196 1.14422 0.0204417 0.969958 0.00302325 0.781035C-0.0143952 0.592112 0.0439493 0.404007 0.165221 0.258101C0.286493 0.112196 0.460759 0.0204417 0.649682 0.00302327C0.838605 -0.0143952 1.02671 0.043949 1.17262 0.165221L5.00214 3.36602L8.83167 0.279536C8.90475 0.220188 8.98884 0.175869 9.0791 0.149125C9.16937 0.122382 9.26403 0.113741 9.35764 0.1237C9.45126 0.133659 9.54198 0.162021 9.6246 0.207156C9.70722 0.252292 9.7801 0.313311 9.83906 0.386705C9.90449 0.460167 9.95405 0.546351 9.98462 0.639855C10.0152 0.733359 10.0261 0.83217 10.0167 0.930097C10.0073 1.02802 9.97784 1.12296 9.93005 1.20895C9.88227 1.29494 9.81724 1.37013 9.73904 1.42982L5.45225 4.88068C5.32002 4.97036 5.16154 5.01312 5.00214 5.00214Z" />
                                     </svg>
                                 </summary>
-                                <ul class="filter-list-drop grey-1">
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="xs"
+                                <ul class="filter-list-drop">
+                                    <li class="filter-list-drop-size"><input type="radio" name="content" value="content"
                                             checked>content
                                     </li>
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="s">content
+                                    <li class="filter-list-drop-size"><input type="radio" name="content"
+                                            value="content">content
                                     </li>
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="m">content
+                                    <li class="filter-list-drop-size"><input type="radio" name="content"
+                                            value="content">content
                                     </li>
-                                    <li class="filter-list-drop-size"><input type="radio" name="size" value="l">content
+                                    <li class="filter-list-drop-size"><input type="radio" name="content"
+                                            value="content">content
                                     </li>
                                 </ul>
                             </details>
@@ -317,17 +323,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_1.png" alt="item">
+                    <img src="images/item_1.png" alt="item-1">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -336,17 +343,20 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <div><img class="item-img" src="images/item_7.png" alt="item"></div>
+                    <div class="img-center">
+                        <img src="images/item_7.png" alt="item-7">
+                    </div>
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -355,17 +365,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_3.png" alt="item">
+                    <img src="images/item_3.png" alt="item-3">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -374,17 +385,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_4.png" alt="item">
+                    <img src="images/item_4.png" alt="item-4">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -393,17 +405,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_8.png" alt="item">
+                    <img src="images/item_8.png" alt="item-8">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -412,17 +425,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_9.png" alt="item">
+                    <img src="images/item_9.png" alt="item-9">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -431,17 +445,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_10.png" alt="item">
+                    <img src="images/item_10.png" alt="item-10">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item">
@@ -450,17 +465,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_11.png" alt="item">
+                    <img src="images/item_11.png" alt="item-11">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <div class="item display-none">
@@ -469,17 +485,18 @@
                             <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
                         </button>
                     </div>
-                    <img src="images/item_12.png" alt="item">
+                    <img src="images/item_12.png" alt="item-12">
                     <div class="item-text">
-                        <a href="product.html" class="item-title font-13-400 black-1" target="_blank">
+                        <a href="product.html" class="item-title" target="_blank">
                             ELLERY X M'O CAPSULE
                         </a>
-                        <p class="item-description">Known for her sculptural takes on traditional tailoring,
+                        <p class="item-description">Known for her sculptural takes on&nbsp;traditional tailoring,
                             Australian
-                            arbiter of cool
+                            arbiter of&nbsp;cool
                             Kym Ellery
-                            teams up with Moda Operandi.</p>
-                        <p class="font-16-400 pink">$52.00</p>
+                            teams up&nbsp;with Moda Operandi.
+                        </p>
+                        <p class="item-price">$52.00</p>
                     </div>
                 </div>
                 <nav class="pagination-nav">
@@ -489,26 +506,26 @@
                                 <path d="M8.99512 2L3.99512 7L8.99512 12L7.99512 14L0.995117 7L7.99512 0L8.99512 2Z" />
                             </svg>
                         </li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">1</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">2</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">3</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">4</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">5</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">6 </a>&nbsp;</li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">7</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">8</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">9</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">10</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">11</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">12</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">13</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">14</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">15</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">16</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">17</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">18</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">19</a></li>
-                        <li class="pagination-link"><a target="_blank" class="font-16-300" href="#">20</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">1</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">2</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">3</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">4</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">5</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">6 </a>&nbsp;</li>
+                        <li class="pagination-link"><a target="_blank" href="#">7</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">8</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">9</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">10</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">11</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">12</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">13</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">14</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">15</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">16</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">17</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">18</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">19</a></li>
+                        <li class="pagination-link"><a target="_blank" href="#">20</a></li>
                         <li class="pagination-link">
                             <svg width="9" height="14" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.994995 12L5.995 7L0.994995 2L1.995 0L8.995 7L1.995 14L0.994995 12Z" />
@@ -521,30 +538,30 @@
         <section class="benefits">
             <div class="wrap benefits-block">
                 <h2 class="visually-hidden">преимущества товаров</h2>
-                <div class="benefits-section img-1">
+                <div class="benefits-section  img-pos img-1">
                     <div class="benefits-text">
-                        <h3 class="font-20-400 white-1">Free Delivery</h3>
-                        <p class="benefits-desc white-1">Worldwide delivery on all. Authorit tively morph
+                        <h3 class="benefits-title">Free Delivery</h3>
+                        <p class="benefits-desc">Worldwide delivery on all. Authorit tively morph
                             next-generation
                             innov tion with extensive
                             models.
                         </p>
                     </div>
                 </div>
-                <div class="benefits-section img-2">
+                <div class="benefits-section img-pos img-2">
                     <div class="benefits-text">
-                        <h3 class="font-20-400 white-1">Sales & discounts</h3>
-                        <p class="benefits-desc white-1">Worldwide delivery on all. Authorit tively morph
+                        <h3 class="benefits-title">Sales & discounts</h3>
+                        <p class="benefits-desc">Worldwide delivery on all. Authorit tively morph
                             next-generation
                             innov tion with extensive
                             models.
                         </p>
                     </div>
                 </div>
-                <div class="benefits-section img-3">
+                <div class="benefits-section img-pos img-3">
                     <div class="benefits-text">
-                        <h3 class="font-20-400 white-1"> Quality assurance</h3>
-                        <p class="benefits-desc white-1">Worldwide delivery on all. Authorit tively morph
+                        <h3 class="benefits-title"> Quality assurance</h3>
+                        <p class="benefits-desc">Worldwide delivery on all. Authorit tively morph
                             next-generation
                             innov tion with extensive
                             models.
@@ -558,8 +575,10 @@
                 <h2 class="visually-hidden">обратная связь</h2>
                 <article class="feedback-quote">
                     <h3 class="visually-hidden">отзывы</h3>
-                    <div class="quote-img"><img src="images/quote.png" alt="quote-author"></div>
-                    <p class="quote-text font-20-400">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                    <div class="quote-img">
+                        <img src="images/quote.png" alt="quote-author">
+                    </div>
+                    <p class="quote-text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
                         <span class="italic">a
                             pulvinar purus
                             condimentum“</span>
@@ -568,22 +587,22 @@
                 <article class="feedback-subscribe">
                     <h3 class="visually-hidden">subscribe</h3>
                     <form action="#">
-                        <h3 class="feedback-title font-24-700 black-3">SUBSCRIBE <br>
-                            <span class=" font-18-400">FOR OUR NEWLETTER AND PROMOTION</span>
+                        <h3 class="feedback-title">SUBSCRIBE <br>
+                            <span>FOR OUR NEWLETTER AND PROMOTION</span>
                         </h3>
                         <input class="feedback-input" type="email" minlength="3" maxlength="25"
                             placeholder="Enter Your Email" required>
-                        <button class="feedback-submit white" type="submit">Subscribe</button>
+                        <button class="feedback-submit" type="submit">Subscribe</button>
                     </form>
                 </article>
             </div>
         </section>
     </div>
-    <footer class="footer white">
+    <footer class="footer">
         <div class="wrap footer-wrap">
             <h2 class="visually-hidden">подвал</h2>
             <div class="footer-col-1">
-                <h3 class="font-16-400 white-1">&copy; 2021 Brand All Rights Reserved.</h3>
+                <h3>&copy; 2021 Brand All Rights Reserved.</h3>
             </div>
             <ul class="footer-col-2">
                 <li class="icon-block">

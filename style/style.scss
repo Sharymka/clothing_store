@@ -1,4 +1,4 @@
-//переменные
+//veriables
 $main-color: #f16d7f;
 $font-huge: 48px;
 $font-large: 32px;
@@ -13,7 +13,7 @@ $grey: #9f9f9f;
 $dark-grey: #6f6e6e;
 $dark-gray-1: #5d5d5d;
 
-// примеси
+// mixins
 @mixin font-10-400 {
   font-weight: 400;
   font-size: 10px;
@@ -165,7 +165,7 @@ li {
 
 .wrap {
   padding: 0 16px;
-  outline: 1px solid red;
+  // outline: 1px solid red;
   max-width: 1140px;
   margin: 0 auto;
   box-sizing: content-box;
@@ -413,8 +413,10 @@ stop {
   z-index: 3;
   display: none;
   &-title {
-    @include font-14-300;
-    font-weight: 900;
+    @include font(14px, 900, 17px, $dark-black, left, uppercase);
+  }
+  &-item > a {
+    @include font(14px, 400, 17px, $main-color, left, uppercase);
   }
   &-box {
     @include flex(start, column, start);
@@ -443,10 +445,12 @@ stop {
 
 .summenu-list {
   @include flex(start, column, start);
+  @include font(14px, 400, 17px, $dark-grey, left, none);
   gap: 10px;
   padding-left: 20px;
   padding-top: 20px;
 }
+
 //block main
 .promo {
   background-color: #f1e4e6;
@@ -490,22 +494,42 @@ stop {
 
 .block-pos {
   @include flex(center, row, center);
-  background-color: #222224;
+  // background-color: #222224;
   width: 31.5%;
   max-height: 260px;
   min-height: 260px;
 }
 .block-1 {
-  background-image: url(../images/for_women.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/for_women.jpg);
 }
 .block-2 {
-  background-image: url(../images/for_men.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/for_men.jpg);
 }
 .block-3 {
-  background-image: url(../images/for_kids.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/for_kids.jpg);
 }
 .block-4 {
-  background-image: url(../images/accesories.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/accessories.jpg);
   background-repeat: no-repeat;
   flex-grow: 1;
   max-height: 180px;
@@ -575,7 +599,7 @@ stop {
     position: relative;
     padding: 25px 30px 20px 16px;
     background: #f8f8f8;
-    flex-flow: 1;
+
     overflow: hidden;
     z-index: 1;
   }
@@ -739,7 +763,12 @@ stop {
 
 // block feedback
 .feedback {
-  background-image: url(../images/feedback.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url(../images/feedback.jpg);
   min-height: 448px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -828,7 +857,7 @@ stop {
     @include flex(space-between, row, center);
     min-height: 79px;
   }
-  &-col-1 {
+  &-col-1 h3 {
     @include font(16px, 400, 19px, $white-1, center, capitalize);
   }
   &-col-2 {
@@ -856,12 +885,20 @@ stop {
   }
 }
 
-/* стрица каталога */
+/* catalog page */
+
+// breadcrumbs
 .breadcrumbs {
   background-color: #f8f3f4;
   &-wrap {
     height: 148px;
     @include flex(space-between, row, center);
+  }
+  &-col-1 h1 {
+    @include font(24px, 400, 29px, $main-color, center, uppercase);
+  }
+  &-col-2 {
+    @include font(14px, 400, 17px, $light-black, center, uppercase);
   }
   &-list {
     @include flex(space-between, row, center);
@@ -872,13 +909,12 @@ stop {
       margin-left: 6px;
     }
   }
+  &-link:last-child {
+    color: $main-color;
+    font-weight: 700;
+  }
 }
-.breadcrumbs-text {
-  @include font-14-300;
-}
-.breadcrumbs-text-bold {
-  @include font-14-900;
-}
+
 .breadcrumbs-link:not(:last-child) a:hover {
   color: $main-color;
   text-decoration: underline;
@@ -897,6 +933,7 @@ stop {
   flex-basis: 100%;
   margin: 37px 0px 20px 0px;
 }
+
 .filter-col-1 {
   width: 360px;
   box-sizing: border-box;
@@ -905,8 +942,8 @@ stop {
 .filter {
   border: none;
   background-color: white;
-  outline: #23d5ab;
   &-title {
+    @include font(14px, 700, 17px, $dark-black, left, uppercase);
     box-sizing: border-box;
     padding: 13px 16px 13px 17px;
     cursor: pointer;
@@ -914,18 +951,33 @@ stop {
       margin-left: 10px;
     }
   }
+  &-subtitle {
+    @include font(14px, 400, 17px, $dark-grey, left, uppercase);
+    cursor: pointer;
+  }
   &-list {
     @include flex(center, row, center);
   }
 }
+
 .filter[open] {
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
 }
+details[open] svg {
+  fill: $main-color;
+}
+
 .filter[open] .filter-title {
   background-color: #fff;
+  color: $main-color;
   position: relative;
   z-index: 3;
 }
+
+.sub-filter[open] .filter-subtitle {
+  color: $main-color;
+}
+
 .filter-drop {
   @include flex(center, column, start);
   gap: 18px;
@@ -939,6 +991,7 @@ stop {
 }
 
 .filter-col-2 {
+  @include font(14px, 400, 17px, $dark-grey, left, uppercase);
   @include flex(start, row, center);
   gap: 28px;
   width: 360px;
@@ -946,14 +999,17 @@ stop {
   list-style: none;
   cursor: pointer;
 }
+
 .filter-list-title {
+  @include font(14px, 400, 17px, $dark-grey, center, uppercase);
   position: relative;
+  cursor: pointer;
 }
 
 .filter-list-drop {
+  @include font(14px, 400, 16px, $dark-grey, left, uppercase);
   @include flex(start, column, start);
   gap: 6px;
-  @include font-14-300;
   position: absolute;
   padding: 13px 30px 13px 10px;
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
@@ -965,6 +1021,10 @@ stop {
     position: relative;
   }
 }
+.filter-list-box[open] .filter-list-title {
+  color: $main-color;
+}
+
 .filter-list-drop-size {
   & input[type="radio"]::before {
     content: "";
@@ -985,17 +1045,10 @@ stop {
   }
 }
 
-details[open] {
-  color: $main-color;
-}
-
-details[open] svg {
-  fill: $main-color;
-}
-
 ::-webkit-details-marker {
   display: none;
 }
+
 summary {
   display: block;
 }
@@ -1008,6 +1061,7 @@ summary {
   padding: 10px;
   width: 335px;
 }
+
 .categories-list {
   @include flex(start, column, start);
   gap: 10px;
@@ -1021,6 +1075,7 @@ summary {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+// pagination list
 .pagination-nav {
   flex-basis: 100%;
 }
@@ -1067,7 +1122,7 @@ summary {
 }
 
 .pagination-list a {
-  color: #c4c4c4;
+  @include font(16px, 300, 19px, $grey, center, none);
   display: block;
 
   // transition: all 0.2s;
@@ -1087,7 +1142,6 @@ summary {
 .product {
   @include flex(space-between, column, center);
   margin-bottom: 130px;
-
   &-block-img {
     @include flex(space-between, row, center);
     width: 100%;
@@ -1111,22 +1165,6 @@ summary {
       }
     }
   }
-
-  @keyframes shadow-drop-2-center {
-    0% {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-    100% {
-      -webkit-transform: translateZ(50px);
-      transform: translateZ(50px);
-      -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-    }
-  }
-
   &-block-desc {
     @include flex(center, column, center);
     border: 1px solid #eaeaea;
@@ -1135,12 +1173,11 @@ summary {
     background-color: white;
     &-text {
       @include flex(space-between, column, center);
-      width: 56%;
+      width: 58%;
       text-align: center;
       border-bottom: 1px solid #eaeaea;
       &-title {
-        color: $main-color;
-        @include font-14-300;
+        @include font(14px, 300, 17px, $main-color, center, uppercase);
         margin-bottom: 12px;
       }
       &-line {
@@ -1150,17 +1187,15 @@ summary {
         margin-bottom: 11px;
       }
       &-slogan {
-        @include font-14-300;
-        color: #4d4d4d;
+        @include font(18px, 300, 22px, $light-black, center, uppercase);
         margin-bottom: 47px;
       }
       &-paragraph {
-        @include font-14-300;
-        color: #5e5e5e;
+        @include font(14px, 300, 17px, $dark-gray-1, center, none);
         margin-bottom: 30px;
       }
       &-price {
-        color: $main-color;
+        @include font(24px, 300, 29px, $main-color, center, none);
         margin-bottom: 62px;
       }
     }
@@ -1182,12 +1217,13 @@ summary {
       }
     }
     &-button-cart {
+      @include font(16px, 400, 19px, $main-color, center, none);
       @include flex(center, row, center);
       padding: 15px 57px 15px 24px;
       background-color: transparent;
       border-color: $main-color;
-      color: $main-color;
       fill: $main-color;
+      cursor: pointer;
       &:hover {
         animation: shadow-inset-lr 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
           both;
@@ -1198,9 +1234,41 @@ summary {
     }
   }
 }
+
 .empty-block {
   height: 20px;
 }
+
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
 @keyframes shadow-inset-lr {
   0% {
     box-shadow: inset 0 0 0 0 rgba(21, 204, 228, 0),
@@ -1222,6 +1290,9 @@ summary {
   padding: 60px 0;
   &-wrap {
     @include flex(start, row, center);
+  }
+  &-wrap h1 {
+    @include font(24px, 400, 29px, $main-color, left, uppercase);
   }
 }
 .cart {
@@ -1256,14 +1327,15 @@ summary {
         @include flex(space-between, column, start);
         flex-grow: 0.6;
         &-title {
+          @include font(24px, 400, 29px, $light-black, left, uppercase);
           text-align: left;
           margin-bottom: 37px;
         }
         &-list {
+          @include font(22px, 400, 26px, $light-black, left, none);
           list-style: none;
           margin-left: 30px;
           color: #575757;
-
           &-item input {
             outline: none;
           }
@@ -1271,13 +1343,16 @@ summary {
             color: #656565;
           }
         }
+        &-list li:first-child span {
+          color: $main-color;
+        }
       }
       &-cross {
         @include flex(flex-end, row, center);
         justify-self: end;
-        // flex-basis: 20%;
         margin-top: 20px;
         margin-right: 20px;
+        cursor: pointer;
       }
     }
     &-buttons {
@@ -1286,7 +1361,7 @@ summary {
       margin-top: 72px;
       &-btn {
         @include flex(center, row, center);
-        @include font-14-300;
+        @include font(14px, 300, 17px, $dark-black, left, uppercase);
         flex-basis: 34.45%;
         background-color: transparent;
         padding: 16px 0px;
@@ -1307,6 +1382,7 @@ summary {
     }
   }
 }
+
 .quantity-box {
   text-align: center;
   line-height: 22px;
@@ -1315,16 +1391,23 @@ summary {
   width: 44px;
   border: 1px solid #eaeaea;
 }
+
 .img-good {
   max-height: 306px;
 }
+
+//shipping block
 .shipping-block {
   @include flex(start, row, start);
   flex-basis: 31.5%;
   &-inputs {
     width: 99.5%;
   }
+  &-inputs h2 {
+    @include font(16px, 300, 19px, $dark-black, left, uppercase);
+  }
 }
+
 .shipping-block-form {
   @include flex(start, column, start);
   margin-top: 20px;
@@ -1352,6 +1435,7 @@ summary {
     }
   }
   &-submit {
+    @include font(11px, 300, 13px, $light-black, left, uppercase);
     background-color: transparent;
     padding: 10px 14px;
     border: 1px solid #a4a4a4;
@@ -1377,11 +1461,20 @@ summary {
   &:hover {
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.21);
   }
+  &-title {
+    @include font(16px, 300, 19px, $light-black, left, uppercase);
+  }
+  &-title span {
+    color: $main-color;
+    font-weight: 700;
+  }
   &-subtitle {
+    @include font(11px, 300, 13px, $light-black, left, uppercase);
     margin-bottom: 12px;
     color: #4a4a4a;
   }
   &-button {
+    @include font(16px, 300, 19px, $white, left, uppercase);
     @include flex(center, row, center);
     background-color: $main-color;
     width: 100%;
@@ -1404,32 +1497,30 @@ summary {
 .margin-price {
   margin-left: 20px;
 }
+
 .registration {
   @include flex(space-between, row, start);
   padding-top: 64px;
   margin-bottom: 96px;
-  // gap: 128px;
   &-form {
     @include flex(center, column, start);
     flex-basis: 31.6%;
     &-fieldset {
+      @include font(16px, 300, 19px, $light-black, left, capitalize);
       @include flex(center, column, start);
       width: 100%;
       gap: 20px;
       border: none;
       & input {
+        @include font(13px, 300, 16px, $dark-grey, left, capitalize);
         padding: 12px 15px;
         width: 100%;
         border: 1px solid #a4a4a4;
         outline: none;
-        @include font-13-300;
         transition: transform 0.3s, color 0.3s;
         &:hover {
           transform: scale(1.05);
           color: $main-color;
-        }
-        &::placeholder {
-          color: #b1b1b1;
         }
         &:hover::placeholder {
           color: $main-color;
@@ -1440,14 +1531,19 @@ summary {
       margin-bottom: 20px;
     }
     &-radio {
+      @include font(11px, 300, 13px, $dark-black, left, none);
       @include flex(start, row, center);
       margin: 32px 0px;
       gap: 20px;
-
+      & label,
+      & input {
+        cursor: pointer;
+      }
       &-invisible {
         display: none;
       }
     }
+
     & input[type="radio"] {
       position: relative;
       height: 13px;
@@ -1486,15 +1582,14 @@ summary {
       visibility: visible;
     }
     &-par {
-      color: #b1b1b1;
+      @include font(13px, 300, 16px, $dark-grey, left, none);
       margin-top: 15px;
     }
     &-button {
-      @include font-14-300;
+      @include font(14px, 300, 16px, $white, center, uppercase);
       background-color: $main-color;
       width: 46.5%;
       padding: 16px 0px;
-      color: #ffffff;
       border: none;
       margin-top: 40px;
       cursor: pointer;
@@ -1519,17 +1614,19 @@ summary {
   &-desc {
     flex-basis: 53.5%;
     &-title {
+      @include font(24px, 300, 29px, $dark-black, left, uppercase);
       margin-bottom: 22px;
     }
     &-par {
+      @include font(24px, 300, 29px, $dark-black, left, none);
       margin-bottom: 21px;
     }
     &-benefits {
       @include flex(start, column, start);
       gap: 16px;
       list-style: none;
-
       & li {
+        @include font(24px, 300, 29px, $dark-black, left, none);
         background-image: url("../images/check-mark.png");
         background-position: left top 6px;
         background-repeat: no-repeat;
@@ -1542,7 +1639,7 @@ summary {
   }
 }
 
-// медиа запросы
+// media
 @media (max-width: 1190px) {
   .wrap {
     width: 95%;
@@ -1583,19 +1680,6 @@ summary {
   .feedback-quote {
     padding: 0;
   }
-  // .filter-col-1 {
-  //   width: 31.6%;
-  // }
-
-  // .filter-col-2 {
-  //   width: 31.6%;
-  // }
-
-  // catalog page
-
-  // .catalog-filter {
-  //   @include flex(center, row, center);
-  // }
 }
 
 @media (max-width: 1170px) {
@@ -1608,6 +1692,9 @@ summary {
   // cart page
   .cart-block-goods {
     flex-basis: 65%;
+  }
+  .feedback-subscribe {
+    flex-basis: 40%;
   }
 }
 
@@ -1806,9 +1893,7 @@ summary {
     margin-top: 22px;
   }
   // catalog page
-  .catalog .item:last-child {
-    display: none;
-  }
+
   .product-block-img {
     border-bottom: 1px solid #eaeaea;
   }
@@ -1826,7 +1911,7 @@ summary {
 
   .registration-desc-title,
   .registration-desc-par,
-  .registration-desc-benefits {
+  .registration-desc-benefits li {
     @include font-16-400;
   }
   .registration-desc-title {
@@ -1856,9 +1941,8 @@ summary {
   }
   .feedback {
     padding: 64px 0 140px 0;
-    background-size: cover;
-    background-position: top left -280px;
   }
+
   .feedback-wrap {
     @include flex(center, column, center);
     gap: 70px;
@@ -2103,8 +2187,11 @@ summary {
     @include flex(center, column, center);
     gap: 32px;
   }
+  // product page
+  .filter-list-title {
+    @include font-10-400;
+  }
   // cart page
-
   .cart-block-goods-card,
   .cart-block-goods-card-img,
   .img-good {
@@ -2141,6 +2228,7 @@ summary {
   .shipping-block-inputs {
     width: 85.5%;
   }
+
   // registration page
   .registration {
     @include flex(center, column, center);
@@ -2155,7 +2243,7 @@ summary {
   }
 }
 
-// мобильная версия
+// mobile
 @media (max-width: 410px) {
   .wrap {
     width: 92%;
@@ -2191,7 +2279,6 @@ summary {
 
   .footer-wrap {
     @include flex(center, column-reverse, center);
-
     gap: 40px;
     margin: 43px 0px 15px 0px;
   }
@@ -2203,8 +2290,6 @@ summary {
   }
   .feedback {
     padding-bottom: 104px;
-    background-position: left -470px bottom;
-    background-size: cover;
   }
   .benefits-desc {
     display: block;
