@@ -165,13 +165,12 @@ li {
 
 .wrap {
   padding: 0 16px;
-  // outline: 1px solid red;
   max-width: 1140px;
   margin: 0 auto;
   box-sizing: content-box;
 }
 
-// стили шрифтов
+// style font
 .font-11-300 {
   font-weight: 300;
   font-size: 11px;
@@ -269,27 +268,6 @@ li {
 .italic {
   font-style: italic;
 }
-// стили цвета
-
-.white-1 {
-  color: #fbfbfb;
-}
-
-.grey {
-  color: #9f9f9f;
-}
-
-.grey-1 {
-  color: #6f6e6e;
-}
-
-.grey-2 {
-  color: #c4c4c4;
-}
-
-.black-3 {
-  color: #222224;
-}
 
 //block header
 .header {
@@ -302,6 +280,7 @@ li {
     padding-bottom: 18px;
   }
 }
+
 .logo svg {
   animation: pulsing 2s infinite alternate;
   transition: all 0.5s;
@@ -309,6 +288,7 @@ li {
     transform: rotate(360deg);
   }
 }
+
 @keyframes pulsing {
   0% {
     transform: scale(0.85, 0.85);
@@ -371,6 +351,7 @@ stop {
     stop-color: #6de1f1;
   }
 }
+
 .header-nav {
   @include flex(space-between, row, center);
   list-style: none;
@@ -439,6 +420,7 @@ stop {
     color: $main-color;
   }
 }
+
 .main-nav-open {
   display: block;
 }
@@ -494,7 +476,7 @@ stop {
 
 .block-pos {
   @include flex(center, row, center);
-  // background-color: #222224;
+  background-color: #222224;
   width: 31.5%;
   max-height: 260px;
   min-height: 260px;
@@ -536,7 +518,6 @@ stop {
   min-height: 180px;
 }
 
-// расположение текста на категориях с помощью flex
 .offer-text {
   @include flex(center, column, center);
   text-transform: uppercase;
@@ -547,18 +528,6 @@ stop {
     @include font(24px, 700, 30px, $main-color, center, uppercase);
   }
 }
-
-/* расположение текста на категориях с помощью position: relative-absolute
-   .position-text {
-    position: relative;
-  }
-  .offer-text {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  } */
 
 // block catalog
 .catalog {
@@ -1124,8 +1093,6 @@ summary {
 .pagination-list a {
   @include font(16px, 300, 19px, $grey, center, none);
   display: block;
-
-  // transition: all 0.2s;
 }
 
 .pagination-link:not(:nth-child(n + 21)):nth-child(n + 8) {
@@ -1137,8 +1104,8 @@ summary {
   content: ".... ";
   color: #c4c4c4;
 }
-// страница product
 
+//product page
 .product {
   @include flex(space-between, column, center);
   margin-bottom: 130px;
@@ -1698,7 +1665,6 @@ summary {
   }
 }
 
-// планшетная версия
 @media (max-width: 967px) {
   .promo-wrap {
     max-height: 500px;
@@ -1767,6 +1733,7 @@ summary {
     background-repeat: no-repeat;
     background-size: contain;
   }
+
   .promo-wrap {
     background-image: none;
     min-height: 450px;
@@ -1775,30 +1742,38 @@ summary {
     background-size: 55%;
     background-position-y: 1px;
   }
+
   .promo-title {
     @include font-44-900;
   }
+
   .header-col-1 {
     margin-left: 10px;
   }
+
   .header-col-2 {
     margin-right: 10px;
   }
+
   .promo-title span {
     @include font-24-900;
   }
+
   .block-pos {
     width: 31%;
     gap: 15px;
   }
+
   .block-1,
   .block-2,
   .block-3 {
     background-position: center top;
   }
+
   .categories-wrap {
     gap: 20px;
   }
+
   .catalog {
     gap: 15px;
   }
@@ -1806,6 +1781,7 @@ summary {
   .benefits-block {
     width: 100%;
   }
+
   .benefits-section {
     min-height: 170px;
   }
@@ -1813,6 +1789,7 @@ summary {
   .feedback-wrap {
     gap: 40px;
   }
+
   .feedback-quote {
     flex-grow: 0.5;
   }
@@ -1821,9 +1798,11 @@ summary {
   .catalog-filter {
     margin: 11px 0px 10px 0px;
   }
+
   .pagination-nav {
     margin: 25px 0px 63px 0px;
   }
+
   .display-none {
     display: none;
   }
@@ -1832,19 +1811,22 @@ summary {
   .cart-block-goods {
     width: 90%;
   }
+
   .shipping-block-form {
     @include flex(space-between, row, center);
     gap: 0;
   }
+
   .shipping-block-inputs {
     flex-basis: 45%;
   }
+
   .shipping-block-checkout-box {
     flex-basis: 48%;
   }
 }
 
-// catalog page
+// tablet
 @media (max-width: 768px) {
   .catalog-filter {
     @include flex(space-between, row, center);
@@ -1856,29 +1838,37 @@ summary {
     gap: 0;
     flex-basis: 0;
   }
+
   .filter-col-1 {
     flex-basis: 0;
   }
+
   .filter-col-2 {
     gap: 20px;
   }
+
   .title-invisible {
     position: absolute;
     margin-top: -9999px;
   }
+
   .filter-title {
     padding-top: 0;
   }
+
   .filter-title svg {
     transform: scale(2);
   }
+
   // cart page
   .cart {
     gap: 36px;
   }
+
   .cart-block-goods {
     width: 100%;
   }
+
   .cart-block-goods-card-desc-title {
     @include font-24-400;
   }
@@ -1886,50 +1876,60 @@ summary {
   .shipping-block-inputs {
     flex-basis: 49.4%;
   }
+
   .shipping-block-checkout-box {
     flex-basis: 49.4%;
   }
+
   .cart-block-goods-buttons {
     margin-top: 22px;
   }
-  // catalog page
 
+  // catalog page
   .product-block-img {
     border-bottom: 1px solid #eaeaea;
   }
+
   .product-block-desc {
     width: 100%;
     margin-top: 0;
     border: none;
   }
+
   .line-bottom {
     width: 100%;
     height: 1px;
     background-color: #eaeaea;
   }
-  // registration page
 
+  // registration page
   .registration-desc-title,
   .registration-desc-par,
   .registration-desc-benefits li {
     @include font-16-400;
   }
+
   .registration-desc-title {
     margin-bottom: 32px;
   }
+
   .registration-desc-benefits {
     gap: 18px;
   }
+
   .registration-desc-benefits li {
     line-height: 23px;
   }
+
   .registration-form-button {
     width: 57.5%;
   }
+
   .registration-form-button svg {
     transform: translateX(0);
     opacity: 1;
   }
+
   .registration-form-radio-invisible {
     display: block;
   }
@@ -1939,6 +1939,7 @@ summary {
   .benefits-section {
     padding: 0 10px;
   }
+
   .feedback {
     padding: 64px 0 140px 0;
   }
@@ -1947,12 +1948,14 @@ summary {
     @include flex(center, column, center);
     gap: 70px;
   }
+
   .feedback-quote {
     padding: 0 160px;
   }
   .catalog-filter {
     gap: 5px;
   }
+
   .filter-title {
     padding-left: 4px;
   }
@@ -1962,11 +1965,13 @@ summary {
   .promo {
     background-position: left -100px bottom -20px;
   }
+
   .promo-title {
     left: 40%;
     margin-left: 30px;
     @include font-38-900;
   }
+
   .categories {
     margin-bottom: 150px;
   }
@@ -1981,23 +1986,29 @@ summary {
   .button-browse {
     margin-bottom: 64px;
   }
+
   .benefits {
     padding: 48px 0 64px 0;
   }
+
   .benefits-block {
     @include flex(center, column, center);
     gap: 48px;
   }
+
   .benefits-section {
     min-height: 135px;
   }
+
   .feedback-quote {
     padding: 0 100px;
   }
+
   .catalog-filter {
     width: 360px;
     gap: 13px;
   }
+
   .filter-title {
     padding-right: 2px;
     margin-right: 0;
@@ -2006,16 +2017,20 @@ summary {
   .shipping-block-checkout-box-button {
     text-align: center;
   }
+
   .cart-block-goods-card-desc-title {
     @include font-22-400;
   }
+
   // product page
   .product-block-img-item {
     flex-basis: 87%;
   }
+
   .product-block-img-item img {
     width: 100%;
   }
+
   .product-block-img-arrow {
     max-height: 47px;
     max-width: 47px;
@@ -2026,14 +2041,17 @@ summary {
   .promo {
     background-image: none;
   }
+
   .promo-title {
     left: 20%;
     margin-left: 30px;
     @include font-38-900;
   }
+
   .offer-text h3 {
     @include font-20-700;
   }
+
   .feedback-quote {
     padding: 0 70px;
   }
@@ -2045,13 +2063,16 @@ summary {
     gap: 20px;
     width: 360px;
   }
+
   // registration page
   .registration-form {
     flex-basis: 44%;
   }
+
   .registration-desc {
     flex-basis: 50%;
   }
+
   .registration-form-button {
     width: 65%;
     padding: 12px 0px;
@@ -2077,7 +2098,6 @@ summary {
   }
 
   // cart page
-
   .inner-title-wrap {
     @include flex(center, row, center);
   }
@@ -2090,6 +2110,7 @@ summary {
   .cart-block-goods-card-img {
     flex-basis: 38%;
   }
+
   .cart-block-goods-card-img,
   .cart-block-goods-buttons-btn {
     @include font-12-400;
@@ -2098,6 +2119,7 @@ summary {
   .cart-block-goods-card-desc-title {
     @include font-18-400;
   }
+
   .cart-block-goods-card-desc-list,
   .quantity-box {
     @include font-16-400;
@@ -2107,30 +2129,38 @@ summary {
     @include flex(center, column, center);
     gap: 48px;
   }
+
   .shipping-block-inputs {
     width: 65.5%;
   }
+
   .shipping-block-checkout-box {
     width: 65.5%;
   }
+
   // product page
   .product {
     margin-bottom: 64px;
   }
+
   .product-block-desc-filter-list {
     @include font-12-400;
   }
+
   .product-block-desc-button-cart {
     padding: 10px 53px 10px 24px;
   }
+
   .product-block-desc-button-cart svg {
     width: 26px;
     height: 24px;
   }
+
   // registration page
   .registration-form {
     flex-basis: 47%;
   }
+
   .registration-desc-benefits li {
     background-size: 20px;
     padding-left: 30px;
@@ -2141,75 +2171,95 @@ summary {
   .wrap {
     width: 92%;
   }
+
   .promo-title {
     width: 350px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .categories {
     margin-bottom: 64px;
   }
+
   .categories-wrap {
     @include flex(center, column, center);
     gap: 32px;
   }
+
   .catalog-text {
     margin-bottom: 50px;
   }
+
   .block-pos {
     width: 343px;
     height: 247px;
     gap: 15px;
   }
+
   .block-4 {
     height: 111px;
   }
+
   .offer-text p {
     @include font-14-400;
   }
+
   .offer-text h3 {
     @include font-18-700;
   }
+
   .feedback-quote {
     padding: 0 30px;
   }
+
   .feedback-input {
     width: 249px;
   }
+
   .feedback-submit {
     padding: 20px 15px;
   }
+
   .footer-wrap {
     gap: 20px;
   }
+
   .breadcrumbs-wrap {
     @include flex(center, column, center);
     gap: 32px;
   }
+
   // product page
   .filter-list-title {
     @include font-10-400;
   }
+
   // cart page
   .cart-block-goods-card,
   .cart-block-goods-card-img,
   .img-good {
     max-height: 188px;
   }
+
   .cart-block-goods-card-desc-title {
     margin-bottom: 25px;
   }
+
   .cart-block-goods-card-cross {
     margin-right: 7px;
   }
+
   .cart-block-goods-card-cross img {
     width: 10px;
     height: 10px;
   }
+
   .cart-block-goods-card-desc-title {
     @include font-16-400;
   }
+
   .quantity-box {
     @include font-10-400;
     height: 16px;
@@ -2221,9 +2271,11 @@ summary {
     @include font-14-400;
     padding: 10px 0px;
   }
+
   .cart-block-goods-buttons-btn {
     flex-basis: 38%;
   }
+
   .shipping-block-checkout-box,
   .shipping-block-inputs {
     width: 85.5%;
@@ -2234,9 +2286,11 @@ summary {
     @include flex(center, column, center);
     gap: 40px;
   }
+
   .registration-form {
     width: 90.4%;
   }
+
   .registration-form-button {
     width: 46.5%;
     padding: 16px;
@@ -2249,30 +2303,36 @@ summary {
     width: 92%;
     padding: 0px 10px;
   }
+
   .header-wrap {
     padding: 18px 0;
   }
+
   .mobile-display {
     display: none;
     position: absolute;
     transform: scale(-1);
   }
+
   .promo {
     min-height: 375px;
   }
+
   .promo-wrap {
     background-image: none;
     min-height: 375px;
     max-width: 363px;
   }
+
   .promo-title {
     width: 300px;
-
     transform: translate(-60%, -50%);
   }
+
   .promo-title p {
     @include font-38-900;
   }
+
   .promo-title span {
     @include font-20-900;
   }
@@ -2282,36 +2342,46 @@ summary {
     gap: 40px;
     margin: 43px 0px 15px 0px;
   }
+
   .offer-text h3 {
     @include font-24-900;
   }
+
   .offer-text p {
     @include font-16-400;
   }
+
   .feedback {
     padding-bottom: 104px;
   }
+
   .benefits-desc {
     display: block;
     width: 86%;
   }
+
   .benefits-section {
     min-height: 160px;
   }
+
   .feedback-input {
     width: 233px;
   }
+
   .feedback-title span {
     @include font-14-400;
   }
+
   .breadcrumbs-col-2 {
     margin-bottom: 14px;
   }
+
   .catalog-filter {
     width: 100%;
     margin: 0px 20px 0px 25px;
     gap: 35px;
   }
+
   .filter-title {
     transform: scale(1.3);
   }
@@ -2319,47 +2389,60 @@ summary {
     margin-left: 10px;
     flex-basis: 80%;
   }
+
   .filter-col-1 {
     margin-left: 5px;
   }
+
   // cart page
   .cart-block-goods {
     gap: 30px;
   }
+
   .cart-block-goods-buttons {
     margin-top: 0px;
   }
+
   .cart-block-goods-buttons-btn {
     flex-basis: 48.8%;
   }
+
   .shipping-block-checkout-box,
   .shipping-block-inputs {
     width: 100%;
   }
+
   .cart-block-goods-buttons {
     @include flex(space-between, row, center);
     gap: 0;
   }
+
   // product page
   .product-block-desc {
     padding: 64px 0px;
   }
+
   .product-block-desc-text {
     width: 86.9%;
   }
+
   .product-block-desc-text {
     text-align: center;
   }
+
   .product-block-desc-filter-list {
     @include font-10-400;
   }
+
   // registration page
   .registration {
     margin-top: 40px;
   }
+
   .registration-form {
     width: 95.5%;
   }
+
   .registration-form-button {
     width: 49%;
   }
