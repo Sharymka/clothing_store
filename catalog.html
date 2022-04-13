@@ -67,7 +67,7 @@
 
                         </button>
                     </li>
-                    <li class="header-nav-item"><a href="registration.html" target="_blank">
+                    <li class="header-nav-item mobile-display"><a href="registration.html" target="_blank">
                             <svg width="29" height="29" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg">
                                 <linearGradient class="grad--linear-1">
                                     <stop offset="0%" stop-color="#f96bd9" class="stop-1" />
@@ -79,7 +79,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="header-nav-item"><a href="cart.html" target="_blank">
+                    <li class="header-nav-item mobile-display"><a href="cart.html" target="_blank">
                             <svg width="32" height="29" viewBox="0 0 32 29" xmlns="http://www.w3.org/2000/svg">
                                 <linearGradient class="grad--linear-1">
                                     <stop offset="0%" stop-color="#f96bd9" class="stop-1" />
@@ -149,9 +149,10 @@
                 </div>
                 <nav class="breadcrumbs-col-2">
                     <ul class="breadcrumbs-list">
-                        <li class="breadcrumbs-link"><a href="#" target="_blank">HOME</a></li>
-                        <li class="breadcrumbs-link"><a href="#" target="_blank"> MEN</a></li>
-                        <li class=" breadcrumbs-link font-14-400 pink"><a href="#">NEW ARRIVALS</a></li>
+                        <li class="breadcrumbs-link"><a class="breadcrumbs-text" href="#" target="_blank">HOME</a></li>
+                        <li class="breadcrumbs-link"><a class="breadcrumbs-text" href="#" target="_blank"> MEN</a></li>
+                        <li class=" breadcrumbs-link "><a class="pink breadcrumbs-text-bold" href="#">NEW ARRIVALS</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -161,8 +162,8 @@
             <div class="catalog-filter">
                 <div class="filter-col-1">
                     <details class="filter font-14-700">
-                        <summary class="filter-title">FILTER &nbsp;<svg width="15" height="10" viewBox="0 0 15 10"
-                                xmlns="http://www.w3.org/2000/svg">
+                        <summary class="filter-title"><span class="title-invisible">FILTER</span>&nbsp;<svg height="10"
+                                viewBox="0 0 15 10" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M0.833333 10H4.16667C4.625 10 5 9.625 5 9.16667C5 8.70833 4.625 8.33333 4.16667 8.33333H0.833333C0.375 8.33333 0 8.70833 0 9.16667C0 9.625 0.375 10 0.833333 10ZM0 0.833333C0 1.29167 0.375 1.66667 0.833333 1.66667H14.1667C14.625 1.66667 15 1.29167 15 0.833333C15 0.375 14.625 0 14.1667 0H0.833333C0.375 0 0 0.375 0 0.833333ZM0.833333 5.83333H9.16667C9.625 5.83333 10 5.45833 10 5C10 4.54167 9.625 4.16667 9.16667 4.16667H0.833333C0.375 4.16667 0 4.54167 0 5C0 5.45833 0.375 5.83333 0.833333 5.83333Z" />
                             </svg>
@@ -419,7 +420,7 @@
                     <p class="font-16-400 pink">$52.00</p>
                 </div>
             </div>
-            <div class="item">
+            <div class="item display-none">
                 <div class="item-overlay bounce">
                     <button class="btn-add" type="button">
                         <img src="images/icon-cart.svg" alt="Add to cart">Add to Cart
