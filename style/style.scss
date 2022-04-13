@@ -1,11 +1,19 @@
-//переменные
+//veriables
 $main-color: #f16d7f;
 $font-huge: 48px;
 $font-large: 32px;
 $color-time: 12s;
 $step: $color-time/4;
+$light-black: #222222;
+$dark-black: black;
+$white: #ffffff;
+$white-1: #fbfbfb;
+$light-grey: #c4c4c4;
+$grey: #9f9f9f;
+$dark-grey: #6f6e6e;
+$dark-gray-1: #5d5d5d;
 
-// примеси
+// mixins
 @mixin font-10-400 {
   font-weight: 400;
   font-size: 10px;
@@ -91,6 +99,11 @@ $step: $color-time/4;
   line-height: 26px;
   font-weight: 400;
 }
+@mixin font-48-900 {
+  font-weight: 900;
+  font-size: $font-huge;
+  line-height: 58px;
+}
 
 @mixin flex($justify-content, $flex-direction, $align-items) {
   display: flex;
@@ -98,11 +111,29 @@ $step: $color-time/4;
   flex-direction: $flex-direction;
   align-items: $align-items;
 }
+@mixin font(
+  $font-size,
+  $font-weight,
+  $line-height,
+  $color,
+  $text-align,
+  $text-transform
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  text-transform: $text-transform;
+  text-align: $text-align;
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: Lato;
   box-sizing: border-box;
+}
+.footer-bottom {
+  flex-grow: 2;
 }
 
 body {
@@ -134,13 +165,12 @@ li {
 
 .wrap {
   padding: 0 16px;
-  // outline: 1px solid red;
   max-width: 1140px;
   margin: 0 auto;
   box-sizing: content-box;
 }
 
-// стили шрифтов
+// style font
 .font-11-300 {
   font-weight: 300;
   font-size: 11px;
@@ -235,53 +265,11 @@ li {
   line-height: 36px;
 }
 
-.font-48-900 {
-  font-weight: 900;
-  font-size: $font-huge;
-  line-height: 58px;
-}
-
 .italic {
   font-style: italic;
 }
-// стили цвета
-.pink {
-  color: $main-color;
-}
 
-.white {
-  color: #ffffff;
-}
-
-.white-1 {
-  color: #fbfbfb;
-}
-
-.grey {
-  color: #9f9f9f;
-}
-
-.grey-1 {
-  color: #6f6e6e;
-}
-
-.grey-2 {
-  color: #c4c4c4;
-}
-
-.black {
-  color: #222222;
-}
-
-.black-1 {
-  color: #000000;
-}
-
-.black-3 {
-  color: #222224;
-}
-
-//раздел header
+//block header
 .header {
   background-color: #222222;
   color: #ffffff;
@@ -292,6 +280,7 @@ li {
     padding-bottom: 18px;
   }
 }
+
 .logo svg {
   animation: pulsing 2s infinite alternate;
   transition: all 0.5s;
@@ -299,6 +288,7 @@ li {
     transform: rotate(360deg);
   }
 }
+
 @keyframes pulsing {
   0% {
     transform: scale(0.85, 0.85);
@@ -361,6 +351,7 @@ stop {
     stop-color: #6de1f1;
   }
 }
+
 .header-nav {
   @include flex(space-between, row, center);
   list-style: none;
@@ -403,8 +394,10 @@ stop {
   z-index: 3;
   display: none;
   &-title {
-    @include font-14-300;
-    font-weight: 900;
+    @include font(14px, 900, 17px, $dark-black, left, uppercase);
+  }
+  &-item > a {
+    @include font(14px, 400, 17px, $main-color, left, uppercase);
   }
   &-box {
     @include flex(start, column, start);
@@ -427,17 +420,20 @@ stop {
     color: $main-color;
   }
 }
+
 .main-nav-open {
   display: block;
 }
 
 .summenu-list {
   @include flex(start, column, start);
+  @include font(14px, 400, 17px, $dark-grey, left, none);
   gap: 10px;
   padding-left: 20px;
   padding-top: 20px;
 }
-//раздел main
+
+//block main
 .promo {
   background-color: #f1e4e6;
   min-height: 768px;
@@ -450,15 +446,24 @@ stop {
     position: relative;
   }
   &-title {
+    @include font(48px, 900, 58px, $light-black, left, uppercase);
     position: absolute;
     top: 38%;
     left: 55%;
     border-left: 12px solid $main-color;
     padding-left: 16px;
     z-index: 1;
+    line-height: 40px;
+    & span:first-of-type {
+      @include font(32px, 900, 38px, $light-black, left, uppercase);
+    }
+    & span:last-of-type {
+      @include font(32px, 900, 38px, $main-color, left, uppercase);
+    }
   }
 }
-// блок категирии
+
+// block categories
 .categories {
   margin-bottom: 90px;
   margin-top: 65px;
@@ -477,40 +482,54 @@ stop {
   min-height: 260px;
 }
 .block-1 {
-  background-image: url(../images/for_women.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/for_women.jpg);
 }
 .block-2 {
-  background-image: url(../images/for_men.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/for_men.jpg);
 }
 .block-3 {
-  background-image: url(../images/for_kids.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/for_kids.jpg);
 }
 .block-4 {
-  background-image: url(../images/accesories.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(34, 24, 24, 0.7),
+      rgba(34, 24, 24, 0.7)
+    ),
+    url(../images/accessories.jpg);
   background-repeat: no-repeat;
   flex-grow: 1;
   max-height: 180px;
   min-height: 180px;
 }
 
-// расположение текста на категориях с помощью flex
 .offer-text {
   @include flex(center, column, center);
+  text-transform: uppercase;
+  & p {
+    @include font(16px, 400, 19px, $white, center, uppercase);
+  }
+  & h3 {
+    @include font(24px, 700, 30px, $main-color, center, uppercase);
+  }
 }
 
-/* расположение текста на категориях с помощью position: relative-absolute
-   .position-text {
-    position: relative;
-  }
-  .offer-text {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  } */
-
-// блок каталог
+// block catalog
 .catalog {
   @include flex(space-between, row, center);
   flex-wrap: wrap;
@@ -518,36 +537,43 @@ stop {
   gap: 30px;
   &-text {
     flex-basis: 100%;
-    text-align: center;
     margin-bottom: 40px;
   }
   &-title {
+    @include font(32px, 400, 36px, $light-black, center, none);
     margin-bottom: 6px;
   }
   &-slogan {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $grey, center, none);
   }
 }
 
 .item {
+  @include flex(space-between, column, start);
   position: relative;
   width: 360px;
+  min-height: 584.5px;
   overflow: hidden;
   background-color: #f3eeef;
+  box-sizing: border-box;
   &-img {
     background-color: #f3eeef;
     height: 420px;
     transform: translate(50%) scale(0.95);
   }
   &-text {
+    @include flex(space-between, column, start);
+    width: 100%;
+    min-height: 164.73px;
     position: relative;
     padding: 25px 30px 20px 16px;
     background: #f8f8f8;
-    margin-top: -3px;
+
     overflow: hidden;
     z-index: 1;
   }
   &-title {
+    @include font(13px, 400, 16px, $dark-black, left, uppercase);
     margin-bottom: 13px;
     &:before {
       content: url("../images/logo.svg");
@@ -577,11 +603,13 @@ stop {
       transform: translateX(0);
     }
   }
-
   &-description {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $dark-gray-1, left, none);
+    flex-grow: 1;
     margin-bottom: 18px;
-    color: #5d5d5d;
+  }
+  &-price {
+    @include font(16px, 400, 19px, $main-color, left, none);
   }
   &-overlay {
     @include flex(center, row, center);
@@ -599,16 +627,25 @@ stop {
     opacity: 1;
   }
 }
+
+.price-bottom {
+  flex-grow: 2;
+}
+
+.img-center {
+  width: 100%;
+  @include flex(center, row, center);
+}
+
 .bounce {
   transition-timing-function: cubic-bezier(0, 0.75, 0.46, 1.01);
 }
 
 .btn-add {
-  @include font-14-300;
+  @include font(14px, 400, 17px, $white, center, capitalize);
   @include flex(center, row, center);
   background-color: transparent;
   border: 1px solid #ffffff;
-  color: #ffffff;
   padding: 11px 13px;
   vertical-align: middle;
   & img {
@@ -620,8 +657,8 @@ stop {
 }
 
 .button-browse {
+  @include font(16px, 400, 19px, $main-color, center, capitalize);
   margin-bottom: 95px;
-  color: $main-color;
   background-color: transparent;
   outline: 1px solid $main-color;
   margin-left: auto;
@@ -629,10 +666,10 @@ stop {
   transition: all 0.5s;
   height: 48px;
   width: 212px;
-
   & a {
     display: block;
     padding: 14px 38px;
+    color: $main-color;
   }
   &:hover {
     outline: 1px solid $main-color;
@@ -649,7 +686,8 @@ stop {
     color: #ffffff;
   }
 }
-// блок преимущества
+
+// block benefits
 .benefits {
   background-color: #222224;
   padding: 103px 0;
@@ -669,8 +707,13 @@ stop {
   &-text {
     @include flex(center, column, center);
     gap: 16px;
+    text-transform: none;
+  }
+  &-title {
+    @include font(20px, 400, 24px, $white-1, center, none);
   }
   &-desc {
+    @include font(14px, 300, 17px, $white-1, center, none);
     text-align: center;
     @include font-14-300;
     opacity: 0.7;
@@ -686,9 +729,15 @@ stop {
 .img-3 {
   background-image: url(../images/quality.svg);
 }
-// блок обратная связь
+
+// block feedback
 .feedback {
-  background-image: url(../images/feedback.jpg);
+  background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url(../images/feedback.jpg);
   min-height: 448px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -707,19 +756,32 @@ stop {
     flex-basis: 38%;
   }
   &-title {
+    @include font(24px, 700, 27px, $dark-black, center, uppercase);
     margin-bottom: 27px;
+    text-transform: uppercase;
+    & span {
+      @include font(18px, 400, 22px, $dark-black, center, uppercase);
+    }
   }
   &-input {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $dark-black, left, none);
     padding: 20px;
     width: 256px;
     border-radius: 25px 0 0 25px;
     background-color: #e1e1e1;
     outline: none;
     border: none;
+    transition: background-color 0.3s ease;
+    &::placeholder {
+      @include font(14px, 400, 17px, $light-black, left, capitalize);
+      opacity: 0.67;
+    }
+    &:hover {
+      background-color: #e9dcde;
+    }
   }
   &-submit {
-    @include font-14-300;
+    @include font(14px, 300, 17px, $white, left, none);
     padding: 20px;
     border-radius: 0 25px 25px 0;
     background-color: $main-color;
@@ -734,6 +796,7 @@ stop {
     }
   }
 }
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -745,27 +808,26 @@ stop {
     background-position: 0% 50%;
   }
 }
+
+.quote-text {
+  @include font(20px, 400, 24px, $light-black, center, none);
+}
+
 .quote-img {
   align-self: center;
   margin-bottom: 30px;
 }
 
-.quote-text {
-  text-align: center;
-}
-
-input::placeholder {
-  color: #222224;
-  opacity: 0.67;
-}
-
-// раздел footer
+// block footer
 .footer {
   background-color: #222222;
   min-height: 79px;
   &-wrap {
     @include flex(space-between, row, center);
     min-height: 79px;
+  }
+  &-col-1 h3 {
+    @include font(16px, 400, 19px, $white-1, center, capitalize);
   }
   &-col-2 {
     @include flex(space-between, row, center);
@@ -792,12 +854,20 @@ input::placeholder {
   }
 }
 
-/* стрица каталога */
+/* catalog page */
+
+// breadcrumbs
 .breadcrumbs {
   background-color: #f8f3f4;
   &-wrap {
     height: 148px;
     @include flex(space-between, row, center);
+  }
+  &-col-1 h1 {
+    @include font(24px, 400, 29px, $main-color, center, uppercase);
+  }
+  &-col-2 {
+    @include font(14px, 400, 17px, $light-black, center, uppercase);
   }
   &-list {
     @include flex(space-between, row, center);
@@ -808,13 +878,12 @@ input::placeholder {
       margin-left: 6px;
     }
   }
+  &-link:last-child {
+    color: $main-color;
+    font-weight: 700;
+  }
 }
-.breadcrumbs-text {
-  @include font-14-300;
-}
-.breadcrumbs-text-bold {
-  @include font-14-900;
-}
+
 .breadcrumbs-link:not(:last-child) a:hover {
   color: $main-color;
   text-decoration: underline;
@@ -833,6 +902,7 @@ input::placeholder {
   flex-basis: 100%;
   margin: 37px 0px 20px 0px;
 }
+
 .filter-col-1 {
   width: 360px;
   box-sizing: border-box;
@@ -841,23 +911,42 @@ input::placeholder {
 .filter {
   border: none;
   background-color: white;
-  outline: #23d5ab;
   &-title {
+    @include font(14px, 700, 17px, $dark-black, left, uppercase);
     box-sizing: border-box;
     padding: 13px 16px 13px 17px;
+    cursor: pointer;
+    & svg {
+      margin-left: 10px;
+    }
+  }
+  &-subtitle {
+    @include font(14px, 400, 17px, $dark-grey, left, uppercase);
+    cursor: pointer;
   }
   &-list {
     @include flex(center, row, center);
   }
 }
+
 .filter[open] {
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
 }
+details[open] svg {
+  fill: $main-color;
+}
+
 .filter[open] .filter-title {
   background-color: #fff;
+  color: $main-color;
   position: relative;
   z-index: 3;
 }
+
+.sub-filter[open] .filter-subtitle {
+  color: $main-color;
+}
+
 .filter-drop {
   @include flex(center, column, start);
   gap: 18px;
@@ -871,20 +960,25 @@ input::placeholder {
 }
 
 .filter-col-2 {
+  @include font(14px, 400, 17px, $dark-grey, left, uppercase);
   @include flex(start, row, center);
   gap: 28px;
   width: 360px;
   box-sizing: border-box;
   list-style: none;
+  cursor: pointer;
 }
+
 .filter-list-title {
+  @include font(14px, 400, 17px, $dark-grey, center, uppercase);
   position: relative;
+  cursor: pointer;
 }
 
 .filter-list-drop {
+  @include font(14px, 400, 16px, $dark-grey, left, uppercase);
   @include flex(start, column, start);
   gap: 6px;
-  @include font-14-300;
   position: absolute;
   padding: 13px 30px 13px 10px;
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
@@ -896,6 +990,10 @@ input::placeholder {
     position: relative;
   }
 }
+.filter-list-box[open] .filter-list-title {
+  color: $main-color;
+}
+
 .filter-list-drop-size {
   & input[type="radio"]::before {
     content: "";
@@ -916,16 +1014,10 @@ input::placeholder {
   }
 }
 
-details[open] {
-  color: $main-color;
-}
-details[open] svg {
-  fill: $main-color;
-}
-
 ::-webkit-details-marker {
   display: none;
 }
+
 summary {
   display: block;
 }
@@ -938,6 +1030,7 @@ summary {
   padding: 10px;
   width: 335px;
 }
+
 .categories-list {
   @include flex(start, column, start);
   gap: 10px;
@@ -951,6 +1044,7 @@ summary {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+// pagination list
 .pagination-nav {
   flex-basis: 100%;
 }
@@ -958,7 +1052,6 @@ summary {
 .pagination-list {
   @include flex(center, row, center);
   list-style: none;
-
   margin-left: auto;
   margin-right: auto;
   gap: 10px;
@@ -966,6 +1059,13 @@ summary {
   border-radius: 3px;
   padding: 16px;
   width: 283px;
+  outline-offset: 0px;
+  outline: $main-color;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    outline: 1px solid #ebebeb;
+    outline-offset: -5px;
+  }
 }
 .pagination-link:nth-child(21) {
   margin-left: -12px;
@@ -976,37 +1076,39 @@ summary {
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-  transition: all 0.2s;
-  &:hover {
-    transform: scale(1.3);
+  & a {
+    transition: all 0.3s;
+  }
+  & a:hover,
+  svg:hover {
+    transform: scale(1.2);
+    color: $main-color;
+  }
+  &:hover svg {
+    color: $main-color;
+    fill: $main-color;
   }
 }
 
 .pagination-list a {
-  color: #c4c4c4;
+  @include font(16px, 300, 19px, $grey, center, none);
   display: block;
+}
 
-  // transition: all 0.2s;
-}
-.pagination-list a:hover {
-  color: $main-color;
-  // transform: scale(1.3);
-}
 .pagination-link:not(:nth-child(n + 21)):nth-child(n + 8) {
   position: absolute;
   visibility: hidden;
 }
 
 .pagination-link:nth-child(7)::after {
-  content: ".....";
+  content: ".... ";
   color: #c4c4c4;
 }
-// страница product
 
+//product page
 .product {
   @include flex(space-between, column, center);
   margin-bottom: 130px;
-
   &-block-img {
     @include flex(space-between, row, center);
     width: 100%;
@@ -1030,22 +1132,6 @@ summary {
       }
     }
   }
-
-  @keyframes shadow-drop-2-center {
-    0% {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-    100% {
-      -webkit-transform: translateZ(50px);
-      transform: translateZ(50px);
-      -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-    }
-  }
-
   &-block-desc {
     @include flex(center, column, center);
     border: 1px solid #eaeaea;
@@ -1054,12 +1140,11 @@ summary {
     background-color: white;
     &-text {
       @include flex(space-between, column, center);
-      width: 56%;
+      width: 58%;
       text-align: center;
       border-bottom: 1px solid #eaeaea;
       &-title {
-        color: $main-color;
-        @include font-14-300;
+        @include font(14px, 300, 17px, $main-color, center, uppercase);
         margin-bottom: 12px;
       }
       &-line {
@@ -1069,17 +1154,15 @@ summary {
         margin-bottom: 11px;
       }
       &-slogan {
-        @include font-14-300;
-        color: #4d4d4d;
+        @include font(18px, 300, 22px, $light-black, center, uppercase);
         margin-bottom: 47px;
       }
       &-paragraph {
-        @include font-14-300;
-        color: #5e5e5e;
+        @include font(14px, 300, 17px, $dark-gray-1, center, none);
         margin-bottom: 30px;
       }
       &-price {
-        color: $main-color;
+        @include font(24px, 300, 29px, $main-color, center, none);
         margin-bottom: 62px;
       }
     }
@@ -1101,12 +1184,13 @@ summary {
       }
     }
     &-button-cart {
+      @include font(16px, 400, 19px, $main-color, center, none);
       @include flex(center, row, center);
       padding: 15px 57px 15px 24px;
       background-color: transparent;
       border-color: $main-color;
-      color: $main-color;
       fill: $main-color;
+      cursor: pointer;
       &:hover {
         animation: shadow-inset-lr 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
           both;
@@ -1117,9 +1201,41 @@ summary {
     }
   }
 }
+
 .empty-block {
   height: 20px;
 }
+
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
 @keyframes shadow-inset-lr {
   0% {
     box-shadow: inset 0 0 0 0 rgba(21, 204, 228, 0),
@@ -1142,6 +1258,9 @@ summary {
   &-wrap {
     @include flex(start, row, center);
   }
+  &-wrap h1 {
+    @include font(24px, 400, 29px, $main-color, left, uppercase);
+  }
 }
 .cart {
   @include flex(space-between, row, start);
@@ -1156,7 +1275,12 @@ summary {
       @include flex(space-between, row, start);
       box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
       max-height: 306px;
+      background-color: #ffff;
       width: 100%;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(1.03);
+      }
       &-img {
         @include flex(center, row, center);
         max-height: 306px;
@@ -1170,14 +1294,15 @@ summary {
         @include flex(space-between, column, start);
         flex-grow: 0.6;
         &-title {
+          @include font(24px, 400, 29px, $light-black, left, uppercase);
           text-align: left;
           margin-bottom: 37px;
         }
         &-list {
+          @include font(22px, 400, 26px, $light-black, left, none);
           list-style: none;
           margin-left: 30px;
           color: #575757;
-
           &-item input {
             outline: none;
           }
@@ -1185,13 +1310,16 @@ summary {
             color: #656565;
           }
         }
+        &-list li:first-child span {
+          color: $main-color;
+        }
       }
       &-cross {
         @include flex(flex-end, row, center);
         justify-self: end;
-        // flex-basis: 20%;
         margin-top: 20px;
         margin-right: 20px;
+        cursor: pointer;
       }
     }
     &-buttons {
@@ -1200,7 +1328,7 @@ summary {
       margin-top: 72px;
       &-btn {
         @include flex(center, row, center);
-        @include font-14-300;
+        @include font(14px, 300, 17px, $dark-black, left, uppercase);
         flex-basis: 34.45%;
         background-color: transparent;
         padding: 16px 0px;
@@ -1221,6 +1349,7 @@ summary {
     }
   }
 }
+
 .quantity-box {
   text-align: center;
   line-height: 22px;
@@ -1229,16 +1358,23 @@ summary {
   width: 44px;
   border: 1px solid #eaeaea;
 }
+
 .img-good {
   max-height: 306px;
 }
+
+//shipping block
 .shipping-block {
   @include flex(start, row, start);
   flex-basis: 31.5%;
   &-inputs {
     width: 99.5%;
   }
+  &-inputs h2 {
+    @include font(16px, 300, 19px, $dark-black, left, uppercase);
+  }
 }
+
 .shipping-block-form {
   @include flex(start, column, start);
   margin-top: 20px;
@@ -1246,14 +1382,27 @@ summary {
     width: 100%;
     padding: 14px 16px;
     margin-bottom: 22px;
+    transition: all 0.4s;
+    outline: none;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:hover::placeholder {
+      color: $main-color;
+    }
   }
   & input:first-of-type {
     margin-top: 20px;
+    transition: all 0.4s;
     &::placeholder {
       color: #b1b1b1;
     }
+    &:hover::placeholder {
+      color: $main-color;
+    }
   }
   &-submit {
+    @include font(11px, 300, 13px, $light-black, left, uppercase);
     background-color: transparent;
     padding: 10px 14px;
     border: 1px solid #a4a4a4;
@@ -1275,11 +1424,24 @@ summary {
   padding: 39px 43px 42px 44px;
   background-color: #f5f3f3;
   @include flex(center, column, flex-end);
+  transition: box-shadow 0.4s ease;
+  &:hover {
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.21);
+  }
+  &-title {
+    @include font(16px, 300, 19px, $light-black, left, uppercase);
+  }
+  &-title span {
+    color: $main-color;
+    font-weight: 700;
+  }
   &-subtitle {
+    @include font(11px, 300, 13px, $light-black, left, uppercase);
     margin-bottom: 12px;
     color: #4a4a4a;
   }
   &-button {
+    @include font(16px, 300, 19px, $white, left, uppercase);
     @include flex(center, row, center);
     background-color: $main-color;
     width: 100%;
@@ -1302,24 +1464,33 @@ summary {
 .margin-price {
   margin-left: 20px;
 }
+
 .registration {
-  @include flex(space-between, row, center);
+  @include flex(space-between, row, start);
   padding-top: 64px;
   margin-bottom: 96px;
-  gap: 128px;
   &-form {
     @include flex(center, column, start);
+    flex-basis: 31.6%;
     &-fieldset {
+      @include font(16px, 300, 19px, $light-black, left, capitalize);
       @include flex(center, column, start);
+      width: 100%;
       gap: 20px;
       border: none;
       & input {
+        @include font(13px, 300, 16px, $dark-grey, left, capitalize);
         padding: 12px 15px;
-        width: 360px;
+        width: 100%;
+        border: 1px solid #a4a4a4;
         outline: none;
-        @include font-13-300;
-        &::placeholder {
-          color: #b1b1b1;
+        transition: transform 0.3s, color 0.3s;
+        &:hover {
+          transform: scale(1.05);
+          color: $main-color;
+        }
+        &:hover::placeholder {
+          color: $main-color;
         }
       }
     }
@@ -1327,10 +1498,19 @@ summary {
       margin-bottom: 20px;
     }
     &-radio {
+      @include font(11px, 300, 13px, $dark-black, left, none);
       @include flex(start, row, center);
       margin: 32px 0px;
       gap: 20px;
+      & label,
+      & input {
+        cursor: pointer;
+      }
+      &-invisible {
+        display: none;
+      }
     }
+
     & input[type="radio"] {
       position: relative;
       height: 13px;
@@ -1339,6 +1519,10 @@ summary {
       background-color: darkslategray;
       vertical-align: middle;
       margin-top: -3px;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
     & input[type="radio"]::before {
       content: "";
@@ -1365,14 +1549,14 @@ summary {
       visibility: visible;
     }
     &-par {
-      color: #b1b1b1;
+      @include font(13px, 300, 16px, $dark-grey, left, none);
       margin-top: 15px;
     }
     &-button {
-      @include font-14-300;
+      @include font(14px, 300, 16px, $white, center, uppercase);
       background-color: $main-color;
-      padding: 16px 30px;
-      color: #ffffff;
+      width: 46.5%;
+      padding: 16px 0px;
       border: none;
       margin-top: 40px;
       cursor: pointer;
@@ -1395,18 +1579,21 @@ summary {
     }
   }
   &-desc {
+    flex-basis: 53.5%;
     &-title {
+      @include font(24px, 300, 29px, $dark-black, left, uppercase);
       margin-bottom: 22px;
     }
     &-par {
+      @include font(24px, 300, 29px, $dark-black, left, none);
       margin-bottom: 21px;
     }
     &-benefits {
       @include flex(start, column, start);
       gap: 16px;
       list-style: none;
-
       & li {
+        @include font(24px, 300, 29px, $dark-black, left, none);
         background-image: url("../images/check-mark.png");
         background-position: left top 6px;
         background-repeat: no-repeat;
@@ -1419,7 +1606,7 @@ summary {
   }
 }
 
-// медиа запросы
+// media
 @media (max-width: 1190px) {
   .wrap {
     width: 95%;
@@ -1460,19 +1647,6 @@ summary {
   .feedback-quote {
     padding: 0;
   }
-  // .filter-col-1 {
-  //   width: 31.6%;
-  // }
-
-  // .filter-col-2 {
-  //   width: 31.6%;
-  // }
-
-  // catalog page
-
-  // .catalog-filter {
-  //   @include flex(center, row, center);
-  // }
 }
 
 @media (max-width: 1170px) {
@@ -1486,9 +1660,11 @@ summary {
   .cart-block-goods {
     flex-basis: 65%;
   }
+  .feedback-subscribe {
+    flex-basis: 40%;
+  }
 }
 
-// планшетная версия
 @media (max-width: 967px) {
   .promo-wrap {
     max-height: 500px;
@@ -1543,6 +1719,10 @@ summary {
     margin-top: 10px;
     flex-basis: 40%;
   }
+  // registration page
+  .registration-form {
+    flex-basis: 40%;
+  }
 }
 
 @media (max-width: 870px) {
@@ -1553,6 +1733,7 @@ summary {
     background-repeat: no-repeat;
     background-size: contain;
   }
+
   .promo-wrap {
     background-image: none;
     min-height: 450px;
@@ -1561,30 +1742,38 @@ summary {
     background-size: 55%;
     background-position-y: 1px;
   }
+
   .promo-title {
     @include font-44-900;
   }
+
   .header-col-1 {
     margin-left: 10px;
   }
+
   .header-col-2 {
     margin-right: 10px;
   }
+
   .promo-title span {
     @include font-24-900;
   }
+
   .block-pos {
     width: 31%;
     gap: 15px;
   }
+
   .block-1,
   .block-2,
   .block-3 {
     background-position: center top;
   }
+
   .categories-wrap {
     gap: 20px;
   }
+
   .catalog {
     gap: 15px;
   }
@@ -1592,6 +1781,7 @@ summary {
   .benefits-block {
     width: 100%;
   }
+
   .benefits-section {
     min-height: 170px;
   }
@@ -1599,6 +1789,7 @@ summary {
   .feedback-wrap {
     gap: 40px;
   }
+
   .feedback-quote {
     flex-grow: 0.5;
   }
@@ -1607,9 +1798,11 @@ summary {
   .catalog-filter {
     margin: 11px 0px 10px 0px;
   }
+
   .pagination-nav {
     margin: 25px 0px 63px 0px;
   }
+
   .display-none {
     display: none;
   }
@@ -1618,19 +1811,22 @@ summary {
   .cart-block-goods {
     width: 90%;
   }
+
   .shipping-block-form {
     @include flex(space-between, row, center);
     gap: 0;
   }
+
   .shipping-block-inputs {
     flex-basis: 45%;
   }
+
   .shipping-block-checkout-box {
     flex-basis: 48%;
   }
 }
 
-// catalog page
+// tablet
 @media (max-width: 768px) {
   .catalog-filter {
     @include flex(space-between, row, center);
@@ -1642,29 +1838,37 @@ summary {
     gap: 0;
     flex-basis: 0;
   }
+
   .filter-col-1 {
     flex-basis: 0;
   }
+
   .filter-col-2 {
     gap: 20px;
   }
+
   .title-invisible {
     position: absolute;
     margin-top: -9999px;
   }
+
   .filter-title {
     padding-top: 0;
   }
+
   .filter-title svg {
     transform: scale(2);
   }
+
   // cart page
   .cart {
     gap: 36px;
   }
+
   .cart-block-goods {
     width: 100%;
   }
+
   .cart-block-goods-card-desc-title {
     @include font-24-400;
   }
@@ -1672,28 +1876,62 @@ summary {
   .shipping-block-inputs {
     flex-basis: 49.4%;
   }
+
   .shipping-block-checkout-box {
     flex-basis: 49.4%;
   }
+
   .cart-block-goods-buttons {
     margin-top: 22px;
   }
+
   // catalog page
-  .catalog .item:last-child {
-    display: none;
-  }
   .product-block-img {
     border-bottom: 1px solid #eaeaea;
   }
+
   .product-block-desc {
     width: 100%;
     margin-top: 0;
     border: none;
   }
+
   .line-bottom {
     width: 100%;
     height: 1px;
     background-color: #eaeaea;
+  }
+
+  // registration page
+  .registration-desc-title,
+  .registration-desc-par,
+  .registration-desc-benefits li {
+    @include font-16-400;
+  }
+
+  .registration-desc-title {
+    margin-bottom: 32px;
+  }
+
+  .registration-desc-benefits {
+    gap: 18px;
+  }
+
+  .registration-desc-benefits li {
+    line-height: 23px;
+  }
+
+  .registration-form-button {
+    width: 57.5%;
+  }
+
+  .registration-form-button svg {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .registration-form-radio-invisible {
+    display: block;
   }
 }
 
@@ -1701,21 +1939,23 @@ summary {
   .benefits-section {
     padding: 0 10px;
   }
+
   .feedback {
     padding: 64px 0 140px 0;
-    background-size: cover;
-    background-position: top left -280px;
   }
+
   .feedback-wrap {
     @include flex(center, column, center);
     gap: 70px;
   }
+
   .feedback-quote {
     padding: 0 160px;
   }
   .catalog-filter {
     gap: 5px;
   }
+
   .filter-title {
     padding-left: 4px;
   }
@@ -1725,11 +1965,13 @@ summary {
   .promo {
     background-position: left -100px bottom -20px;
   }
+
   .promo-title {
     left: 40%;
     margin-left: 30px;
     @include font-38-900;
   }
+
   .categories {
     margin-bottom: 150px;
   }
@@ -1744,23 +1986,29 @@ summary {
   .button-browse {
     margin-bottom: 64px;
   }
+
   .benefits {
     padding: 48px 0 64px 0;
   }
+
   .benefits-block {
     @include flex(center, column, center);
     gap: 48px;
   }
+
   .benefits-section {
     min-height: 135px;
   }
+
   .feedback-quote {
     padding: 0 100px;
   }
+
   .catalog-filter {
     width: 360px;
     gap: 13px;
   }
+
   .filter-title {
     padding-right: 2px;
     margin-right: 0;
@@ -1769,16 +2017,20 @@ summary {
   .shipping-block-checkout-box-button {
     text-align: center;
   }
+
   .cart-block-goods-card-desc-title {
     @include font-22-400;
   }
+
   // product page
   .product-block-img-item {
     flex-basis: 87%;
   }
+
   .product-block-img-item img {
     width: 100%;
   }
+
   .product-block-img-arrow {
     max-height: 47px;
     max-width: 47px;
@@ -1789,14 +2041,17 @@ summary {
   .promo {
     background-image: none;
   }
+
   .promo-title {
     left: 20%;
     margin-left: 30px;
     @include font-38-900;
   }
+
   .offer-text h3 {
     @include font-20-700;
   }
+
   .feedback-quote {
     padding: 0 70px;
   }
@@ -1807,6 +2062,20 @@ summary {
   .catalog-filter {
     gap: 20px;
     width: 360px;
+  }
+
+  // registration page
+  .registration-form {
+    flex-basis: 44%;
+  }
+
+  .registration-desc {
+    flex-basis: 50%;
+  }
+
+  .registration-form-button {
+    width: 65%;
+    padding: 12px 0px;
   }
 }
 
@@ -1829,7 +2098,6 @@ summary {
   }
 
   // cart page
-
   .inner-title-wrap {
     @include flex(center, row, center);
   }
@@ -1842,6 +2110,7 @@ summary {
   .cart-block-goods-card-img {
     flex-basis: 38%;
   }
+
   .cart-block-goods-card-img,
   .cart-block-goods-buttons-btn {
     @include font-12-400;
@@ -1850,6 +2119,7 @@ summary {
   .cart-block-goods-card-desc-title {
     @include font-18-400;
   }
+
   .cart-block-goods-card-desc-list,
   .quantity-box {
     @include font-16-400;
@@ -1859,26 +2129,41 @@ summary {
     @include flex(center, column, center);
     gap: 48px;
   }
+
   .shipping-block-inputs {
     width: 65.5%;
   }
+
   .shipping-block-checkout-box {
     width: 65.5%;
   }
-  // product page
+
   // product page
   .product {
     margin-bottom: 64px;
   }
+
   .product-block-desc-filter-list {
     @include font-12-400;
   }
+
   .product-block-desc-button-cart {
     padding: 10px 53px 10px 24px;
   }
+
   .product-block-desc-button-cart svg {
     width: 26px;
     height: 24px;
+  }
+
+  // registration page
+  .registration-form {
+    flex-basis: 47%;
+  }
+
+  .registration-desc-benefits li {
+    background-size: 20px;
+    padding-left: 30px;
   }
 }
 
@@ -1886,72 +2171,95 @@ summary {
   .wrap {
     width: 92%;
   }
+
   .promo-title {
     width: 350px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .categories {
     margin-bottom: 64px;
   }
+
   .categories-wrap {
     @include flex(center, column, center);
     gap: 32px;
   }
+
   .catalog-text {
     margin-bottom: 50px;
   }
+
   .block-pos {
     width: 343px;
     height: 247px;
     gap: 15px;
   }
+
   .block-4 {
     height: 111px;
   }
+
   .offer-text p {
     @include font-14-400;
   }
+
   .offer-text h3 {
     @include font-18-700;
   }
+
   .feedback-quote {
     padding: 0 30px;
   }
+
   .feedback-input {
     width: 249px;
   }
+
   .feedback-submit {
     padding: 20px 15px;
   }
+
   .footer-wrap {
     gap: 20px;
   }
+
   .breadcrumbs-wrap {
     @include flex(center, column, center);
     gap: 32px;
   }
-  // cart page
 
+  // product page
+  .filter-list-title {
+    @include font-10-400;
+  }
+
+  // cart page
   .cart-block-goods-card,
   .cart-block-goods-card-img,
   .img-good {
     max-height: 188px;
   }
+
   .cart-block-goods-card-desc-title {
     margin-bottom: 25px;
   }
+
   .cart-block-goods-card-cross {
     margin-right: 7px;
   }
+
   .cart-block-goods-card-cross img {
     width: 10px;
     height: 10px;
   }
+
   .cart-block-goods-card-desc-title {
     @include font-16-400;
   }
+
   .quantity-box {
     @include font-10-400;
     height: 16px;
@@ -1963,88 +2271,117 @@ summary {
     @include font-14-400;
     padding: 10px 0px;
   }
+
   .cart-block-goods-buttons-btn {
     flex-basis: 38%;
   }
+
   .shipping-block-checkout-box,
   .shipping-block-inputs {
     width: 85.5%;
   }
-  // product page
+
+  // registration page
+  .registration {
+    @include flex(center, column, center);
+    gap: 40px;
+  }
+
+  .registration-form {
+    width: 90.4%;
+  }
+
+  .registration-form-button {
+    width: 46.5%;
+    padding: 16px;
+  }
 }
 
-// мобильная версия
+// mobile
 @media (max-width: 410px) {
   .wrap {
     width: 92%;
     padding: 0px 10px;
   }
+
   .header-wrap {
     padding: 18px 0;
   }
+
   .mobile-display {
     display: none;
     position: absolute;
     transform: scale(-1);
   }
+
   .promo {
     min-height: 375px;
   }
+
   .promo-wrap {
     background-image: none;
     min-height: 375px;
     max-width: 363px;
   }
+
   .promo-title {
     width: 300px;
-
     transform: translate(-60%, -50%);
   }
+
   .promo-title p {
     @include font-38-900;
   }
+
   .promo-title span {
     @include font-20-900;
   }
 
   .footer-wrap {
     @include flex(center, column-reverse, center);
-
     gap: 40px;
     margin: 43px 0px 15px 0px;
   }
+
   .offer-text h3 {
     @include font-24-900;
   }
+
   .offer-text p {
     @include font-16-400;
   }
+
   .feedback {
     padding-bottom: 104px;
-    background-position: left -470px bottom;
-    background-size: cover;
   }
+
   .benefits-desc {
     display: block;
     width: 86%;
   }
+
   .benefits-section {
     min-height: 160px;
   }
+
   .feedback-input {
     width: 233px;
   }
+
   .feedback-title span {
     @include font-14-400;
   }
+
   .breadcrumbs-col-2 {
     margin-bottom: 14px;
   }
+
   .catalog-filter {
     width: 100%;
     margin: 0px 20px 0px 25px;
     gap: 35px;
   }
+
   .filter-title {
     transform: scale(1.3);
   }
@@ -2052,38 +2389,61 @@ summary {
     margin-left: 10px;
     flex-basis: 80%;
   }
+
   .filter-col-1 {
     margin-left: 5px;
   }
+
   // cart page
   .cart-block-goods {
     gap: 30px;
   }
+
   .cart-block-goods-buttons {
     margin-top: 0px;
   }
+
   .cart-block-goods-buttons-btn {
     flex-basis: 48.8%;
   }
+
   .shipping-block-checkout-box,
   .shipping-block-inputs {
     width: 100%;
   }
+
   .cart-block-goods-buttons {
     @include flex(space-between, row, center);
     gap: 0;
   }
+
   // product page
   .product-block-desc {
     padding: 64px 0px;
   }
+
   .product-block-desc-text {
     width: 86.9%;
   }
+
   .product-block-desc-text {
     text-align: center;
   }
+
   .product-block-desc-filter-list {
     @include font-10-400;
+  }
+
+  // registration page
+  .registration {
+    margin-top: 40px;
+  }
+
+  .registration-form {
+    width: 95.5%;
+  }
+
+  .registration-form-button {
+    width: 49%;
   }
 }
