@@ -69,10 +69,15 @@ a {
 }
 .promo {
   min-height: 764px;
-  background-color: #f1e4e6;
+  background-color: transparent;
+}
+.video-promo {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 700px;
 }
 .promo-wrap {
-  background-image: url(../images/promo.svg);
+  /* background-image: url(../images/promo.svg); */
   background-repeat: no-repeat;
   min-height: 764px;
   background-position: calc(-225px);
@@ -80,7 +85,6 @@ a {
   background-size: 73%;
   position: relative;
 }
-
 .promo-title {
   position: absolute;
   top: 38%;
@@ -282,6 +286,9 @@ a {
   margin-bottom: 18px;
   color: #5d5d5d;
 }
+.item-video {
+  overflow: hidden;
+}
 
 .button-browse {
   margin-top: 48px;
@@ -456,6 +463,10 @@ input::placeholder {
 .breadcrumbs-list a {
   color: #636363;
   margin-left: 6px;
+}
+.breadcrumbs-link a:hover {
+  color: #f16d7f;
+  text-decoration: underline;
 }
 .breadcrumbs-link:last-child > a {
   color: #f16d7f;
