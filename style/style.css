@@ -296,6 +296,92 @@ stop {
   }
 }
 
+.items-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  background-color: #ffffff;
+  color: #222222;
+  position: absolute;
+  -webkit-box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+          box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+  top: 50px;
+  right: 30px;
+  padding: 5px;
+  z-index: 2;
+}
+
+.header-cart-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  border-bottom: 0.5px solid #9f9f9f;
+  margin: 0 10px;
+}
+
+.footer-cart-list {
+  margin-right: 30px;
+}
+
+.category {
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 19px;
+  margin-right: 10px;
+  min-width: 73px;
+  padding-bottom: 3px;
+}
+
+.header-cart {
+  position: relative;
+}
+
+.header-cart:hover .items-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.count_items {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  font-size: 10px;
+  color: #ffffff;
+  position: absolute;
+  top: 7px;
+  left: 24px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #f16d7f;
+  z-index: 1;
+  outline: none;
+  border: none;
+  padding-left: 5px;
+  padding-bottom: 2px;
+}
+
 .header-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -321,6 +407,11 @@ stop {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   fill: #ffffff;
+  padding: 10px 0;
+}
+
+.header-nav-item:last-child {
+  padding-right: 14px;
 }
 
 .header-nav-item button {
@@ -330,6 +421,7 @@ stop {
 
 .header-nav-item svg {
   fill: #ffffff;
+  position: relative;
 }
 
 .header-nav-item:hover {
