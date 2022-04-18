@@ -357,11 +357,12 @@ stop {
   color: $light-black;
   position: absolute;
   box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
-  // display: none;
   top: 50px;
+  opacity: 0;
   right: 30px;
   padding: 5px;
-  z-index: 2;
+  z-index: 3;
+  transition: all 0.2s;
 }
 
 .header-cart-list {
@@ -373,18 +374,28 @@ stop {
 .footer-cart-list {
   margin-right: 30px;
 }
+.name-item:first-child {
+  width: 100px;
+}
 
 .category {
   @include font-14-900;
   margin-right: 10px;  
-  min-width: 73px;
+  min-width: 80px;
   padding-bottom: 3px;
+  &:not(:last-child) {
+    text-align: center;
+  }
 }
+
 
 .header-cart {
   position: relative;
+  
   &:hover .items-list {
-    display: flex;
+    // display: flex;
+    // opacity: 1;
+    transform: scale(1.1);
   }
 }
 
@@ -428,7 +439,7 @@ stop {
       fill: #ffffff;
       position: relative;
     }
-    &:hover {
+    &:hover:not(:last-child) {
       transform: scale(1.2);
     }
     &:hover svg {
