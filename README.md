@@ -156,12 +156,6 @@ cd clothing_store
 npx serve .
 ```
 
-3. Для редактирования SCSS потребуется Sass-компилятор:
-
-```bash
-npm install -g sass
-sass --watch style/style.scss:style/style.css
-```
 
 ## История разработки
 
